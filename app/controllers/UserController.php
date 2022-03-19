@@ -22,8 +22,7 @@ class UserController extends SecureController{
 			"nama", 
 			"email", 
 			"profil", 
-			"role", 
-			"account_status");
+			"role");
 		$pagination = $this->get_pagination(MAX_RECORD_COUNT); // get current pagination e.g array(page_number, page_limit)
 		//search table record
 		if(!empty($request->search)){
@@ -34,11 +33,10 @@ class UserController extends SecureController{
 				user.pass LIKE ? OR 
 				user.email LIKE ? OR 
 				user.profil LIKE ? OR 
-				user.role LIKE ? OR 
-				user.account_status LIKE ?
+				user.role LIKE ?
 			)";
 			$search_params = array(
-				"%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%"
+				"%$text%","%$text%","%$text%","%$text%","%$text%","%$text%"
 			);
 			//setting search conditions
 			$db->where($search_condition, $search_params);
@@ -92,8 +90,7 @@ class UserController extends SecureController{
 		$fields = array("id_user", 
 			"nama", 
 			"email", 
-			"role", 
-			"account_status");
+			"role");
 		if($value){
 			$db->where($rec_id, urldecode($value)); //select record based on field name
 		}
@@ -130,7 +127,7 @@ class UserController extends SecureController{
 			$tablename = $this->tablename;
 			$request = $this->request;
 			//fillable fields
-			$fields = $this->fields = array("nama","pass","email","profil","role","account_status");
+			$fields = $this->fields = array("nama","pass","email","profil","role");
 			$postdata = $this->format_request_data($formdata);
 			$cpassword = $postdata['confirm_password'];
 			$password = $postdata['pass'];
@@ -144,14 +141,12 @@ class UserController extends SecureController{
 				'email' => 'required|valid_email',
 				'profil' => 'required',
 				'role' => 'required',
-				'account_status' => 'required',
 			);
 			$this->sanitize_array = array(
 				'nama' => 'sanitize_string',
 				'email' => 'sanitize_string',
 				'profil' => 'sanitize_string',
 				'role' => 'sanitize_string',
-				'account_status' => 'sanitize_string',
 			);
 			$this->filter_vals = true; //set whether to remove empty fields
 			$modeldata = $this->modeldata = $this->validate_form($postdata);
@@ -194,27 +189,16 @@ class UserController extends SecureController{
 		$this->rec_id = $rec_id;
 		$tablename = $this->tablename;
 		 //editable fields
-		$fields = $this->fields = array("id_user","nama","profil","account_status");
+		$fields = $this->fields = array("id_user","profil");
 		if($formdata){
 			$postdata = $this->format_request_data($formdata);
 			$this->rules_array = array(
-				'nama' => 'required',
 				'profil' => 'required',
-				'account_status' => 'required',
 			);
 			$this->sanitize_array = array(
-				'nama' => 'sanitize_string',
 				'profil' => 'sanitize_string',
-				'account_status' => 'sanitize_string',
 			);
 			$modeldata = $this->modeldata = $this->validate_form($postdata);
-			//Check if Duplicate Record Already Exit In The Database
-			if(isset($modeldata['nama'])){
-				$db->where("nama", $modeldata['nama'])->where("id_user", $rec_id, "!=");
-				if($db->has($tablename)){
-					$this->view->page_error[] = $modeldata['nama']." Already exist!";
-				}
-			} 
 			if($this->validated()){
 				$db->where("user.id_user", $rec_id);;
 				$bool = $db->update($tablename, $modeldata);
@@ -256,7 +240,7 @@ class UserController extends SecureController{
 		$this->rec_id = $rec_id;
 		$tablename = $this->tablename;
 		//editable fields
-		$fields = $this->fields = array("id_user","nama","profil","account_status");
+		$fields = $this->fields = array("id_user","profil");
 		$page_error = null;
 		if($formdata){
 			$postdata = array();
@@ -265,24 +249,13 @@ class UserController extends SecureController{
 			$postdata[$fieldname] = $fieldvalue;
 			$postdata = $this->format_request_data($postdata);
 			$this->rules_array = array(
-				'nama' => 'required',
 				'profil' => 'required',
-				'account_status' => 'required',
 			);
 			$this->sanitize_array = array(
-				'nama' => 'sanitize_string',
 				'profil' => 'sanitize_string',
-				'account_status' => 'sanitize_string',
 			);
 			$this->filter_rules = true; //filter validation rules by excluding fields not in the formdata
 			$modeldata = $this->modeldata = $this->validate_form($postdata);
-			//Check if Duplicate Record Already Exit In The Database
-			if(isset($modeldata['nama'])){
-				$db->where("nama", $modeldata['nama'])->where("id_user", $rec_id, "!=");
-				if($db->has($tablename)){
-					$this->view->page_error[] = $modeldata['nama']." Already exist!";
-				}
-			} 
 			if($this->validated()){
 				$db->where("user.id_user", $rec_id);;
 				$bool = $db->update($tablename, $modeldata);

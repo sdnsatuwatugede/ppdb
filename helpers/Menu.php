@@ -646,20 +646,6 @@ class Menu{
 			"label" => "2020", 
 		),);
 		
-			public static $account_status = array(
-		array(
-			"value" => "Active", 
-			"label" => "Active", 
-		),
-		array(
-			"value" => "Pending", 
-			"label" => "Pending", 
-		),
-		array(
-			"value" => "Blocked", 
-			"label" => "Blocked", 
-		),);
-		
 			public static $role = array(
 		array(
 			"value" => "Admin", 
@@ -672,6 +658,10 @@ class Menu{
 		array(
 			"value" => "User", 
 			"label" => "User", 
+		),
+		array(
+			"value" => "siswa", 
+			"label" => "siswa", 
 		),);
 		
 }

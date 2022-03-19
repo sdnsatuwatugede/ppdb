@@ -99,21 +99,7 @@ $show_export_btn = $this->show_export_btn;
                                                     </tr>
                                                     <tr  class="td-nama">
                                                         <th class="title"> Nama: </th>
-                                                        <td class="value">
-                                                            <span <?php if($can_edit){ ?> data-value="<?php echo $data['nama']; ?>" 
-                                                                data-pk="<?php echo $data['id_user'] ?>" 
-                                                                data-url="<?php print_link("user/editfield/" . urlencode($data['id_user'])); ?>" 
-                                                                data-name="nama" 
-                                                                data-title="Enter Nama" 
-                                                                data-placement="left" 
-                                                                data-toggle="click" 
-                                                                data-type="text" 
-                                                                data-mode="popover" 
-                                                                data-showbuttons="left" 
-                                                                class="is-editable" <?php } ?>>
-                                                                <?php echo $data['nama']; ?> 
-                                                            </span>
-                                                        </td>
+                                                        <td class="value"> <?php echo $data['nama']; ?></td>
                                                     </tr>
                                                     <tr  class="td-email">
                                                         <th class="title"> Email: </th>
@@ -122,25 +108,6 @@ $show_export_btn = $this->show_export_btn;
                                                     <tr  class="td-role">
                                                         <th class="title"> Role: </th>
                                                         <td class="value"> <?php echo $data['role']; ?></td>
-                                                    </tr>
-                                                    <tr  class="td-account_status">
-                                                        <th class="title"> Account Status: </th>
-                                                        <td class="value">
-                                                            <span <?php if($can_edit){ ?> data-source='<?php echo json_encode_quote(Menu :: $account_status); ?>' 
-                                                                data-value="<?php echo $data['account_status']; ?>" 
-                                                                data-pk="<?php echo $data['id_user'] ?>" 
-                                                                data-url="<?php print_link("user/editfield/" . urlencode($data['id_user'])); ?>" 
-                                                                data-name="account_status" 
-                                                                data-title="Select a value ..." 
-                                                                data-placement="left" 
-                                                                data-toggle="click" 
-                                                                data-type="select" 
-                                                                data-mode="popover" 
-                                                                data-showbuttons="left" 
-                                                                class="is-editable" <?php } ?>>
-                                                                <?php echo $data['account_status']; ?> 
-                                                            </span>
-                                                        </td>
                                                     </tr>
                                                 </tbody>    
                                             </table>

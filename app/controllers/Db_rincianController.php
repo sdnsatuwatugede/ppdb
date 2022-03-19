@@ -57,6 +57,10 @@ class Db_rincianController extends SecureController{
 		else{
 			$db->orderBy("db_rincian.id_rincian", ORDER_TYPE);
 		}
+		$allowed_roles = array ('admin', 'siswa');
+		if(!in_array(strtolower(USER_ROLE), $allowed_roles)){
+		$db->where("db_rincian.id_rincian", get_active_user('nama') );
+		}
 		if($fieldname){
 			$db->where($fieldname , $fieldvalue); //filter by a single field name
 		}
@@ -105,6 +109,10 @@ class Db_rincianController extends SecureController{
 			"db_rincian.waktu", 
 			"db_rincian.jml_saudara", 
 			"db_rincian.asal_sekolah");
+		$allowed_roles = array ('admin', 'siswa');
+		if(!in_array(strtolower(USER_ROLE), $allowed_roles)){
+		$db->where("db_rincian.id_rincian", get_active_user('nama') );
+		}
 		if($value){
 			$db->where($rec_id, urldecode($value)); //select record based on field name
 		}
@@ -144,7 +152,6 @@ class Db_rincianController extends SecureController{
 			//fillable fields
 			$fields = $this->fields = array("id_siswa","no_telp","no_hp","email","tinggi_badan","berat_badan","jarak","waktu","jml_saudara","asal_sekolah");
 			$postdata = $this->format_request_data($formdata);
-			$this->validate_captcha = true; //will check for captcha validation
 			$this->rules_array = array(
 				'id_siswa' => 'required',
 				'no_telp' => 'numeric',
@@ -226,6 +233,10 @@ class Db_rincianController extends SecureController{
 			);
 			$modeldata = $this->modeldata = $this->validate_form($postdata);
 			if($this->validated()){
+		$allowed_roles = array ('admin', 'siswa');
+		if(!in_array(strtolower(USER_ROLE), $allowed_roles)){
+		$db->where("db_rincian.id_rincian", get_active_user('nama') );
+		}
 				$db->where("db_rincian.id_rincian", $rec_id);;
 				$bool = $db->update($tablename, $modeldata);
 				$numRows = $db->getRowCount(); //number of affected rows. 0 = no record field updated
@@ -246,6 +257,10 @@ class Db_rincianController extends SecureController{
 					}
 				}
 			}
+		}
+		$allowed_roles = array ('admin', 'siswa');
+		if(!in_array(strtolower(USER_ROLE), $allowed_roles)){
+		$db->where("db_rincian.id_rincian", get_active_user('nama') );
 		}
 		$db->where("db_rincian.id_rincian", $rec_id);;
 		$data = $db->getOne($tablename, $fields);
@@ -301,6 +316,10 @@ class Db_rincianController extends SecureController{
 			$this->filter_rules = true; //filter validation rules by excluding fields not in the formdata
 			$modeldata = $this->modeldata = $this->validate_form($postdata);
 			if($this->validated()){
+		$allowed_roles = array ('admin', 'siswa');
+		if(!in_array(strtolower(USER_ROLE), $allowed_roles)){
+		$db->where("db_rincian.id_rincian", get_active_user('nama') );
+		}
 				$db->where("db_rincian.id_rincian", $rec_id);;
 				$bool = $db->update($tablename, $modeldata);
 				$numRows = $db->getRowCount();
@@ -342,6 +361,10 @@ class Db_rincianController extends SecureController{
 		//form multiple delete, split record id separated by comma into array
 		$arr_rec_id = array_map('trim', explode(",", $rec_id));
 		$db->where("db_rincian.id_rincian", $arr_rec_id, "in");
+		$allowed_roles = array ('admin');
+		if(!in_array(strtolower(USER_ROLE), $allowed_roles)){
+		$db->where("db_rincian.id_rincian", get_active_user('nama') );
+		}
 		$bool = $db->delete($tablename);
 		if($bool){
 			$this->set_flash_msg("Record deleted successfully", "success");

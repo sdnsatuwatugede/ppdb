@@ -142,35 +142,6 @@ $redirect_to = $this->redirect_to;
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="form-group ">
-                                                    <div class="row">
-                                                        <div class="col-sm-4">
-                                                            <label class="control-label" for="account_status">Account Status <span class="text-danger">*</span></label>
-                                                        </div>
-                                                        <div class="col-sm-8">
-                                                            <div class="">
-                                                                <select required=""  id="ctrl-account_status" name="account_status"  placeholder="Select a value ..."    class="custom-select" >
-                                                                    <option value="">Select a value ...</option>
-                                                                    <?php
-                                                                    $account_status_options = Menu :: $account_status;
-                                                                    if(!empty($account_status_options)){
-                                                                    foreach($account_status_options as $option){
-                                                                    $value = $option['value'];
-                                                                    $label = $option['label'];
-                                                                    $selected = $this->set_field_selected('account_status', $value, "Active");
-                                                                    ?>
-                                                                    <option <?php echo $selected ?> value="<?php echo $value ?>">
-                                                                        <?php echo $label ?>
-                                                                    </option>                                   
-                                                                    <?php
-                                                                    }
-                                                                    }
-                                                                    ?>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
                                                 <div class="form-group">
                                                     <div class="row">
                                                         <div class="col-sm-4">

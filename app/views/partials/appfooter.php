@@ -1,3 +1,4 @@
+</style>
 <footer class="footer border-top">
 	<div class="container-fluid">
 		<div class="row">

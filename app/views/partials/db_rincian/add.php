@@ -108,18 +108,6 @@ $redirect_to = $this->redirect_to;
                                                                                             <input id="ctrl-asal_sekolah"  value="<?php  echo $this->set_field_value('asal_sekolah',""); ?>" type="text" placeholder="Asal Sekolah"  required="" name="asal_sekolah"  class="form-control " />
                                                                                             </div>
                                                                                         </div>
-                                                                                        <div class="form-group">
-                                                                                            <div class="row">
-                                                                                                <div class="col-sm-4">
-                                                                                                    <label class="control-label" for="user_role_id">Enter the code <span class="text-danger">*</span></label>
-                                                                                                </div>
-                                                                                                <div class="col-sm-8">
-                                                                                                    <div class="">
-                                                                                                        <?php Html::captcha_field(); ?>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
                                                                                     </div>
                                                                                     <div class="form-group form-submit-btn-holder text-center mt-3">
                                                                                         <div class="form-ajax-status"></div>

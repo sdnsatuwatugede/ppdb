@@ -20,8 +20,7 @@ class AccountController extends SecureController{
 		$fields = array("id_user", 
 			"nama", 
 			"email", 
-			"role", 
-			"account_status");
+			"role");
 		$user = $db->getOne($tablename , $fields);
 		if(!empty($user)){
 			$page_title = $this->view->page_title = "My Account";
@@ -43,27 +42,16 @@ class AccountController extends SecureController{
 		$rec_id = $this->rec_id = USER_ID;
 		$tablename = $this->tablename;
 		 //editable fields
-		$fields = $this->fields = array("id_user","nama","profil","account_status");
+		$fields = $this->fields = array("id_user","profil");
 		if($formdata){
 			$postdata = $this->format_request_data($formdata);
 			$this->rules_array = array(
-				'nama' => 'required',
 				'profil' => 'required',
-				'account_status' => 'required',
 			);
 			$this->sanitize_array = array(
-				'nama' => 'sanitize_string',
 				'profil' => 'sanitize_string',
-				'account_status' => 'sanitize_string',
 			);
 			$modeldata = $this->modeldata = $this->validate_form($postdata);
-			//Check if Duplicate Record Already Exit In The Database
-			if(isset($modeldata['nama'])){
-				$db->where("nama", $modeldata['nama'])->where("id_user", $rec_id, "!=");
-				if($db->has($tablename)){
-					$this->view->page_error[] = $modeldata['nama']." Already exist!";
-				}
-			} 
 			if($this->validated()){
 				$db->where("user.id_user", $rec_id);;
 				$bool = $db->update($tablename, $modeldata);
@@ -108,6 +96,8 @@ class AccountController extends SecureController{
 			$db->where ("id_user", $rec_id);
 			$result = $db->update($tablename, array('email' => $email ));
 			if($result){
+				$this->set_flash_msg("Email address changed successfully", "success");
+				$this->redirect("account");
 			}
 			else{
 				$this->set_page_error("Email not changed");

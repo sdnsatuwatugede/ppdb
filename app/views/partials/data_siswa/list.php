@@ -130,6 +130,7 @@ $show_pagination = $this->show_pagination;
                                                 <th  class="td-jenis_kelamin"> Jenis Kelamin</th>
                                                 <th  class="td-tempat_lhr"> Tempat Lahir</th>
                                                 <th  class="td-tanggal_lhr"> Tanggal Lahir</th>
+                                                <th  class="td-username"> Username</th>
                                                 <th class="td-btn"></th>
                                             </tr>
                                         </thead>
@@ -231,6 +232,21 @@ $show_pagination = $this->show_pagination;
                                                             data-showbuttons="left" 
                                                             class="is-editable" <?php } ?>>
                                                             <?php echo $data['tanggal_lhr']; ?> 
+                                                        </span>
+                                                    </td>
+                                                    <td class="td-username">
+                                                        <span <?php if($can_edit){ ?> data-value="<?php echo $data['username']; ?>" 
+                                                            data-pk="<?php echo $data['id'] ?>" 
+                                                            data-url="<?php print_link("data_siswa/editfield/" . urlencode($data['id'])); ?>" 
+                                                            data-name="username" 
+                                                            data-title="Username" 
+                                                            data-placement="left" 
+                                                            data-toggle="click" 
+                                                            data-type="text" 
+                                                            data-mode="popover" 
+                                                            data-showbuttons="left" 
+                                                            class="is-editable" <?php } ?>>
+                                                            <?php echo $data['username']; ?> 
                                                         </span>
                                                     </td>
                                                     <th class="td-btn">

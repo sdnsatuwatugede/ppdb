@@ -7,7 +7,7 @@ class SecureController extends BaseController{
 	function __construct(){
 		parent::__construct();
 		// Page actions which do not require authentication.
-		$exclude_pages = array('data_siswa/add', 'db_rincian/add');
+		$exclude_pages = array();
 		$url = Router :: $page_url;
 		$url = str_ireplace("/index", "/list", $url);
 		$acl = new ACL;

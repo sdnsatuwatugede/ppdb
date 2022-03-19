@@ -130,7 +130,6 @@ $show_pagination = $this->show_pagination;
                                                 <th  class="td-email"> Email</th>
                                                 <th  class="td-profil"> Profil</th>
                                                 <th  class="td-role"> Role</th>
-                                                <th  class="td-account_status"> Account Status</th>
                                                 <th class="td-btn"></th>
                                             </tr>
                                         </thead>
@@ -156,40 +155,10 @@ $show_pagination = $this->show_pagination;
                                                     <?php } ?>
                                                     <th class="td-sno"><?php echo $counter; ?></th>
                                                     <td class="td-id_user"><a href="<?php print_link("user/view/$data[id_user]") ?>"><?php echo $data['id_user']; ?></a></td>
-                                                    <td class="td-nama">
-                                                        <span <?php if($can_edit){ ?> data-value="<?php echo $data['nama']; ?>" 
-                                                            data-pk="<?php echo $data['id_user'] ?>" 
-                                                            data-url="<?php print_link("user/editfield/" . urlencode($data['id_user'])); ?>" 
-                                                            data-name="nama" 
-                                                            data-title="Enter Nama" 
-                                                            data-placement="left" 
-                                                            data-toggle="click" 
-                                                            data-type="text" 
-                                                            data-mode="popover" 
-                                                            data-showbuttons="left" 
-                                                            class="is-editable" <?php } ?>>
-                                                            <?php echo $data['nama']; ?> 
-                                                        </span>
-                                                    </td>
+                                                    <td class="td-nama"> <?php echo $data['nama']; ?></td>
                                                     <td class="td-email"><a href="<?php print_link("mailto:$data[email]") ?>"><?php echo $data['email']; ?></a></td>
                                                     <td class="td-profil"><?php Html :: page_img($data['profil'],50,50,1); ?></td>
                                                     <td class="td-role"> <?php echo $data['role']; ?></td>
-                                                    <td class="td-account_status">
-                                                        <span <?php if($can_edit){ ?> data-source='<?php echo json_encode_quote(Menu :: $account_status); ?>' 
-                                                            data-value="<?php echo $data['account_status']; ?>" 
-                                                            data-pk="<?php echo $data['id_user'] ?>" 
-                                                            data-url="<?php print_link("user/editfield/" . urlencode($data['id_user'])); ?>" 
-                                                            data-name="account_status" 
-                                                            data-title="Select a value ..." 
-                                                            data-placement="left" 
-                                                            data-toggle="click" 
-                                                            data-type="select" 
-                                                            data-mode="popover" 
-                                                            data-showbuttons="left" 
-                                                            class="is-editable" <?php } ?>>
-                                                            <?php echo $data['account_status']; ?> 
-                                                        </span>
-                                                    </td>
                                                     <th class="td-btn">
                                                         <?php if($can_view){ ?>
                                                         <a class="btn btn-sm btn-success has-tooltip" title="View Record" href="<?php print_link("user/view/$rec_id"); ?>">

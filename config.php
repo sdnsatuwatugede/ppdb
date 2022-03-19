@@ -59,7 +59,7 @@ define("UPLOAD_IMG_DIR", UPLOAD_DIR . "photos/");
 define("MAX_UPLOAD_FILESIZE", trim(ini_get("upload_max_filesize")));
 
 // First page to see after user login 
-define("HOME_PAGE", "home");
+define("HOME_PAGE", "Home");
 define("DEFAULT_PAGE", "index"); //Default Controller Class
 define("DEFAULT_PAGE_ACTION", "index"); //Default Controller Action
 define("DEFAULT_LAYOUT", LAYOUTS_DIR . "main_layout.php");

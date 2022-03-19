@@ -516,19 +516,14 @@ $redirect_to = $this->redirect_to;
                                                                                                                                             </select>
                                                                                                                                         </div>
                                                                                                                                     </div>
-                                                                                                                                </fieldset>
-                                                                                                                                <div class="form-group">
-                                                                                                                                    <div class="row">
-                                                                                                                                        <div class="col-sm-4">
-                                                                                                                                            <label class="control-label" for="user_role_id">Enter the code <span class="text-danger">*</span></label>
-                                                                                                                                        </div>
-                                                                                                                                        <div class="col-sm-8">
-                                                                                                                                            <div class="">
-                                                                                                                                                <?php Html::captcha_field(); ?>
-                                                                                                                                            </div>
+                                                                                                                                </div>
+                                                                                                                                <div class="form-group ">
+                                                                                                                                    <label class="control-label" for="username">Username <span class="text-danger">*</span></label>
+                                                                                                                                    <div id="ctrl-username-holder" class=""> 
+                                                                                                                                        <input id="ctrl-username"  value="<?php  echo $this->set_field_value('username',USER_NAME); ?>" type="text" placeholder="Username"  readonly required="" name="username"  class="form-control " />
                                                                                                                                         </div>
                                                                                                                                     </div>
-                                                                                                                                </div>
+                                                                                                                                </fieldset>
                                                                                                                             </div>
                                                                                                                             <div class="form-group form-submit-btn-holder text-center mt-3">
                                                                                                                                 <div class="form-ajax-status"></div>

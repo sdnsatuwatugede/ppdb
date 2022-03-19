@@ -720,6 +720,19 @@ $redirect_to = $this->redirect_to;
                                                                                                                             </div>
                                                                                                                         </div>
                                                                                                                     </div>
+                                                                                                                </div>
+                                                                                                                <div class="form-group ">
+                                                                                                                    <div class="row">
+                                                                                                                        <div class="col-sm-4">
+                                                                                                                            <label class="control-label" for="username">Username <span class="text-danger">*</span></label>
+                                                                                                                        </div>
+                                                                                                                        <div class="col-sm-8">
+                                                                                                                            <div class="">
+                                                                                                                                <input id="ctrl-username"  value="<?php  echo $data['username']; ?>" type="text" placeholder="Username"  readonly required="" name="username"  class="form-control " />
+                                                                                                                                </div>
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                                    </div>
                                                                                                                 </fieldset>
                                                                                                             </div>
                                                                                                             <div class="form-ajax-status"></div>

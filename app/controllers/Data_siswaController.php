@@ -23,7 +23,8 @@ class Data_siswaController extends SecureController{
 			"nama_siswa", 
 			"jenis_kelamin", 
 			"tempat_lhr", 
-			"tanggal_lhr");
+			"tanggal_lhr", 
+			"username");
 		$pagination = $this->get_pagination(MAX_RECORD_COUNT); // get current pagination e.g array(page_number, page_limit)
 		//search table record
 		if(!empty($request->search)){
@@ -62,10 +63,11 @@ class Data_siswaController extends SecureController{
 				data_siswa.pendidikan_ibu LIKE ? OR 
 				data_siswa.penghasilan_ibu LIKE ? OR 
 				data_siswa.th_lhr_ayah LIKE ? OR 
-				data_siswa.pekerjaan_ibu LIKE ?
+				data_siswa.pekerjaan_ibu LIKE ? OR 
+				data_siswa.username LIKE ?
 			)";
 			$search_params = array(
-				"%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%"
+				"%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%","%$text%"
 			);
 			//setting search conditions
 			$db->where($search_condition, $search_params);
@@ -79,6 +81,10 @@ class Data_siswaController extends SecureController{
 		}
 		else{
 			$db->orderBy("data_siswa.id", ORDER_TYPE);
+		}
+		$allowed_roles = array ('admin');
+		if(!in_array(strtolower(USER_ROLE), $allowed_roles)){
+		$db->where("data_siswa.username", get_active_user('nama') );
 		}
 		if($fieldname){
 			$db->where($fieldname , $fieldvalue); //filter by a single field name
@@ -143,7 +149,12 @@ class Data_siswaController extends SecureController{
 			"data_siswa.penghasilan_ay", 
 			"db_penghasilan.penghasilan AS db_penghasilan_penghasilan", 
 			"data_siswa.nama_ibu", 
-			"data_siswa.nik_ibu");
+			"data_siswa.nik_ibu", 
+			"data_siswa.username");
+		$allowed_roles = array ('admin');
+		if(!in_array(strtolower(USER_ROLE), $allowed_roles)){
+		$db->where("data_siswa.username", get_active_user('nama') );
+		}
 		if($value){
 			$db->where($rec_id, urldecode($value)); //select record based on field name
 		}
@@ -185,9 +196,8 @@ class Data_siswaController extends SecureController{
 			$tablename = $this->tablename;
 			$request = $this->request;
 			//fillable fields
-			$fields = $this->fields = array("no_pendaftaran","tanggal_daftar","nama_siswa","jenis_kelamin","nik_siswa","tempat_lhr","tanggal_lhr","no_reg_akte","agama","kewarga","keb_khusus_s","alamat","rt","rw","dusun","kelurahan","kec","kd_pos","tmp_tg","moda_trans","anak_ke","nama_ayah","nik_ayah","th_lhr_ayah","pendidikan_ayah","pekerjaan_ayah","penghasilan_ay","nama_ibu","nik_ibu","th_lhr_ibu","pendidikan_ibu","penghasilan_ibu","pekerjaan_ibu");
+			$fields = $this->fields = array("no_pendaftaran","tanggal_daftar","nama_siswa","jenis_kelamin","nik_siswa","tempat_lhr","tanggal_lhr","no_reg_akte","agama","kewarga","keb_khusus_s","alamat","rt","rw","dusun","kelurahan","kec","kd_pos","tmp_tg","moda_trans","anak_ke","nama_ayah","nik_ayah","th_lhr_ayah","pendidikan_ayah","pekerjaan_ayah","penghasilan_ay","nama_ibu","nik_ibu","th_lhr_ibu","pendidikan_ibu","penghasilan_ibu","pekerjaan_ibu","username");
 			$postdata = $this->format_request_data($formdata);
-			$this->validate_captcha = true; //will check for captcha validation
 			$this->rules_array = array(
 				'no_pendaftaran' => 'required|numeric',
 				'tanggal_daftar' => 'required',
@@ -222,6 +232,7 @@ class Data_siswaController extends SecureController{
 				'pendidikan_ibu' => 'required',
 				'penghasilan_ibu' => 'required',
 				'pekerjaan_ibu' => 'required',
+				'username' => 'required',
 			);
 			$this->sanitize_array = array(
 				'no_pendaftaran' => 'sanitize_string',
@@ -257,6 +268,7 @@ class Data_siswaController extends SecureController{
 				'pendidikan_ibu' => 'sanitize_string',
 				'penghasilan_ibu' => 'sanitize_string',
 				'pekerjaan_ibu' => 'sanitize_string',
+				'username' => 'sanitize_string',
 			);
 			$this->filter_vals = true; //set whether to remove empty fields
 			$modeldata = $this->modeldata = $this->validate_form($postdata);
@@ -291,7 +303,7 @@ class Data_siswaController extends SecureController{
 		$this->rec_id = $rec_id;
 		$tablename = $this->tablename;
 		 //editable fields
-		$fields = $this->fields = array("id","no_pendaftaran","tanggal_daftar","nama_siswa","jenis_kelamin","nik_siswa","tempat_lhr","tanggal_lhr","no_reg_akte","agama","kewarga","keb_khusus_s","alamat","rt","rw","dusun","kelurahan","kec","kd_pos","tmp_tg","moda_trans","anak_ke","nama_ayah","nik_ayah","th_lhr_ayah","pendidikan_ayah","pekerjaan_ayah","penghasilan_ay","nama_ibu","nik_ibu","th_lhr_ibu","pendidikan_ibu","penghasilan_ibu","pekerjaan_ibu");
+		$fields = $this->fields = array("id","no_pendaftaran","tanggal_daftar","nama_siswa","jenis_kelamin","nik_siswa","tempat_lhr","tanggal_lhr","no_reg_akte","agama","kewarga","keb_khusus_s","alamat","rt","rw","dusun","kelurahan","kec","kd_pos","tmp_tg","moda_trans","anak_ke","nama_ayah","nik_ayah","th_lhr_ayah","pendidikan_ayah","pekerjaan_ayah","penghasilan_ay","nama_ibu","nik_ibu","th_lhr_ibu","pendidikan_ibu","penghasilan_ibu","pekerjaan_ibu","username");
 		if($formdata){
 			$postdata = $this->format_request_data($formdata);
 			$this->rules_array = array(
@@ -328,6 +340,7 @@ class Data_siswaController extends SecureController{
 				'pendidikan_ibu' => 'required',
 				'penghasilan_ibu' => 'required',
 				'pekerjaan_ibu' => 'required',
+				'username' => 'required',
 			);
 			$this->sanitize_array = array(
 				'no_pendaftaran' => 'sanitize_string',
@@ -363,6 +376,7 @@ class Data_siswaController extends SecureController{
 				'pendidikan_ibu' => 'sanitize_string',
 				'penghasilan_ibu' => 'sanitize_string',
 				'pekerjaan_ibu' => 'sanitize_string',
+				'username' => 'sanitize_string',
 			);
 			$modeldata = $this->modeldata = $this->validate_form($postdata);
 			//Check if Duplicate Record Already Exit In The Database
@@ -373,6 +387,10 @@ class Data_siswaController extends SecureController{
 				}
 			} 
 			if($this->validated()){
+		$allowed_roles = array ('admin');
+		if(!in_array(strtolower(USER_ROLE), $allowed_roles)){
+		$db->where("data_siswa.username", get_active_user('nama') );
+		}
 				$db->where("data_siswa.id", $rec_id);;
 				$bool = $db->update($tablename, $modeldata);
 				$numRows = $db->getRowCount(); //number of affected rows. 0 = no record field updated
@@ -394,6 +412,10 @@ class Data_siswaController extends SecureController{
 				}
 			}
 		}
+		$allowed_roles = array ('admin');
+		if(!in_array(strtolower(USER_ROLE), $allowed_roles)){
+		$db->where("data_siswa.username", get_active_user('nama') );
+		}
 		$db->where("data_siswa.id", $rec_id);;
 		$data = $db->getOne($tablename, $fields);
 		$page_title = $this->view->page_title = "Edit  Data Siswa";
@@ -413,7 +435,7 @@ class Data_siswaController extends SecureController{
 		$this->rec_id = $rec_id;
 		$tablename = $this->tablename;
 		//editable fields
-		$fields = $this->fields = array("id","no_pendaftaran","tanggal_daftar","nama_siswa","jenis_kelamin","nik_siswa","tempat_lhr","tanggal_lhr","no_reg_akte","agama","kewarga","keb_khusus_s","alamat","rt","rw","dusun","kelurahan","kec","kd_pos","tmp_tg","moda_trans","anak_ke","nama_ayah","nik_ayah","th_lhr_ayah","pendidikan_ayah","pekerjaan_ayah","penghasilan_ay","nama_ibu","nik_ibu","th_lhr_ibu","pendidikan_ibu","penghasilan_ibu","pekerjaan_ibu");
+		$fields = $this->fields = array("id","no_pendaftaran","tanggal_daftar","nama_siswa","jenis_kelamin","nik_siswa","tempat_lhr","tanggal_lhr","no_reg_akte","agama","kewarga","keb_khusus_s","alamat","rt","rw","dusun","kelurahan","kec","kd_pos","tmp_tg","moda_trans","anak_ke","nama_ayah","nik_ayah","th_lhr_ayah","pendidikan_ayah","pekerjaan_ayah","penghasilan_ay","nama_ibu","nik_ibu","th_lhr_ibu","pendidikan_ibu","penghasilan_ibu","pekerjaan_ibu","username");
 		$page_error = null;
 		if($formdata){
 			$postdata = array();
@@ -455,6 +477,7 @@ class Data_siswaController extends SecureController{
 				'pendidikan_ibu' => 'required',
 				'penghasilan_ibu' => 'required',
 				'pekerjaan_ibu' => 'required',
+				'username' => 'required',
 			);
 			$this->sanitize_array = array(
 				'no_pendaftaran' => 'sanitize_string',
@@ -490,6 +513,7 @@ class Data_siswaController extends SecureController{
 				'pendidikan_ibu' => 'sanitize_string',
 				'penghasilan_ibu' => 'sanitize_string',
 				'pekerjaan_ibu' => 'sanitize_string',
+				'username' => 'sanitize_string',
 			);
 			$this->filter_rules = true; //filter validation rules by excluding fields not in the formdata
 			$modeldata = $this->modeldata = $this->validate_form($postdata);
@@ -501,6 +525,10 @@ class Data_siswaController extends SecureController{
 				}
 			} 
 			if($this->validated()){
+		$allowed_roles = array ('admin');
+		if(!in_array(strtolower(USER_ROLE), $allowed_roles)){
+		$db->where("data_siswa.username", get_active_user('nama') );
+		}
 				$db->where("data_siswa.id", $rec_id);;
 				$bool = $db->update($tablename, $modeldata);
 				$numRows = $db->getRowCount();
@@ -542,6 +570,10 @@ class Data_siswaController extends SecureController{
 		//form multiple delete, split record id separated by comma into array
 		$arr_rec_id = array_map('trim', explode(",", $rec_id));
 		$db->where("data_siswa.id", $arr_rec_id, "in");
+		$allowed_roles = array ('admin');
+		if(!in_array(strtolower(USER_ROLE), $allowed_roles)){
+		$db->where("data_siswa.username", get_active_user('nama') );
+		}
 		$bool = $db->delete($tablename);
 		if($bool){
 			$this->set_flash_msg("Sukses terhapus", "success");

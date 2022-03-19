@@ -93,6 +93,66 @@ class IndexController extends BaseController{
 		}
 	}
 	/**
+     * Insert new record into the user table
+	 * @param $formdata array from $_POST
+     * @return BaseView
+     */
+	function register($formdata = null){
+		if($formdata){
+			$request = $this->request;
+			$db = $this->GetModel();
+			$tablename = $this->tablename;
+			$fields = $this->fields = array("nama","pass","email","profil","role"); //registration fields
+			$postdata = $this->format_request_data($formdata);
+			$cpassword = $postdata['confirm_password'];
+			$password = $postdata['pass'];
+			if($cpassword != $password){
+				$this->view->page_error[] = "Your password confirmation is not consistent";
+			}
+			$this->validate_captcha = true; //will check for captcha validation
+			$this->rules_array = array(
+				'nama' => 'required',
+				'pass' => 'required',
+				'email' => 'required|valid_email',
+				'profil' => 'required',
+				'role' => 'required',
+			);
+			$this->sanitize_array = array(
+				'nama' => 'sanitize_string',
+				'email' => 'sanitize_string',
+				'profil' => 'sanitize_string',
+				'role' => 'sanitize_string',
+			);
+			$this->filter_vals = true; //set whether to remove empty fields
+			$modeldata = $this->modeldata = $this->validate_form($postdata);
+			$password_text = $modeldata['pass'];
+			//update modeldata with the password hash
+			$modeldata['pass'] = $this->modeldata['pass'] = password_hash($password_text , PASSWORD_DEFAULT);
+			//Check if Duplicate Record Already Exit In The Database
+			$db->where("nama", $modeldata['nama']);
+			if($db->has($tablename)){
+				$this->view->page_error[] = $modeldata['nama']." Already exist!";
+			}
+			//Check if Duplicate Record Already Exit In The Database
+			$db->where("email", $modeldata['email']);
+			if($db->has($tablename)){
+				$this->view->page_error[] = $modeldata['email']." Already exist!";
+			}
+			if($this->validated()){
+				$rec_id = $this->rec_id = $db->insert($tablename, $modeldata);
+				if($rec_id){
+					redirect_to_page('index');
+					return;
+				}
+				else{
+					$this->set_page_error();
+				}
+			}
+		}
+		$page_title = $this->view->page_title = "Add New User";
+		return $this->render_view("index/register.php");
+	}
+	/**
      * Logout Action
      * Destroy All Sessions And Cookies
      * @return View
