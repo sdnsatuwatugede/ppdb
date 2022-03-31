@@ -96,7 +96,7 @@ $redirect_to = $this->redirect_to;
                                                         <div class="form-group col-md-6">
                                                             <label class="control-label" for="nik_siswa">Nik Siswa <span class="text-danger">*</span></label>
                                                             <div id="ctrl-nik_siswa-holder" class=""> 
-                                                                <input id="ctrl-nik_siswa"  value="<?php  echo $this->set_field_value('nik_siswa',""); ?>" type="number" placeholder="Nik Siswa" min="1111111111111111" step="1"  required="" name="nik_siswa"  class="form-control " />
+                                                                <input id="ctrl-nik_siswa"  value="<?php  echo $this->set_field_value('nik_siswa',""); ?>" type="number" placeholder="Nik Siswa" min="1111111111111111" max="9999999999999999" step="1"  required="" name="nik_siswa"  class="form-control " />
                                                                 </div>
                                                             </div>
                                                             <div class="form-group col-md-6">
@@ -295,7 +295,7 @@ $redirect_to = $this->redirect_to;
                                                                                                             <div class="form-group col-md-6">
                                                                                                                 <label class="control-label" for="nik_ayah">Nik Ayah <span class="text-danger">*</span></label>
                                                                                                                 <div id="ctrl-nik_ayah-holder" class=""> 
-                                                                                                                    <input id="ctrl-nik_ayah"  value="<?php  echo $this->set_field_value('nik_ayah',""); ?>" type="number" placeholder="Nik Ayah" min="1111111111111111" step="1"  required="" name="nik_ayah"  class="form-control " />
+                                                                                                                    <input id="ctrl-nik_ayah"  value="<?php  echo $this->set_field_value('nik_ayah',""); ?>" type="number" placeholder="Nik Ayah" min="1111111111111111" max="9999999999999999" step="1"  required="" name="nik_ayah"  class="form-control " />
                                                                                                                     </div>
                                                                                                                 </div>
                                                                                                                 <div class="form-group col-md-6">
@@ -399,7 +399,7 @@ $redirect_to = $this->redirect_to;
                                                                                                                     <div class="form-group col">
                                                                                                                         <label class="control-label" for="nik_ibu">Nik Ibu <span class="text-danger">*</span></label>
                                                                                                                         <div id="ctrl-nik_ibu-holder" class=""> 
-                                                                                                                            <input id="ctrl-nik_ibu"  value="<?php  echo $this->set_field_value('nik_ibu',""); ?>" type="number" placeholder="Nik Ibu" min="1111111111111111" step="1"  required="" name="nik_ibu"  class="form-control " />
+                                                                                                                            <input id="ctrl-nik_ibu"  value="<?php  echo $this->set_field_value('nik_ibu',""); ?>" type="number" placeholder="Nik Ibu" min="1111111111111111" max="9999999999999999" step="1"  required="" name="nik_ibu"  class="form-control " />
                                                                                                                             </div>
                                                                                                                         </div>
                                                                                                                         <div class="form-group col-md-6">
@@ -499,7 +499,7 @@ $redirect_to = $this->redirect_to;
                                                                                                                             <div id="ctrl-no_telp-holder" class=""> 
                                                                                                                                 <input id="ctrl-no_telp"  value="<?php  echo $this->set_field_value('no_telp',""); ?>" type="tel" placeholder="Enter Nomer Telphone"  required="" name="no_telp"  class="form-control " />
                                                                                                                                 </div>
-                                                                                                                                <small class="form-text">No Telp Rumah kalau ada / kalau tidak ada isi dengan 12345</small>
+                                                                                                                                <small class="form-text">No Telp Rumah kalau ada / kalau tidak ada isi dengan no hp</small>
                                                                                                                             </div>
                                                                                                                             <div class="form-group col-md-6">
                                                                                                                                 <label class="control-label" for="no_hp">Nomer Hp <span class="text-danger">*</span></label>
@@ -511,14 +511,14 @@ $redirect_to = $this->redirect_to;
                                                                                                                                 <div class="form-group col-md-6">
                                                                                                                                     <label class="control-label" for="tinggi_badan">Tinggi Badan <span class="text-danger">*</span></label>
                                                                                                                                     <div id="ctrl-tinggi_badan-holder" class=""> 
-                                                                                                                                        <input id="ctrl-tinggi_badan"  value="<?php  echo $this->set_field_value('tinggi_badan',""); ?>" type="number" placeholder="Tinggi Badan" step="1"  required="" name="tinggi_badan"  class="form-control " />
+                                                                                                                                        <input id="ctrl-tinggi_badan"  value="<?php  echo $this->set_field_value('tinggi_badan',""); ?>" type="number" placeholder="Tinggi Badan" min="10" max="200" step="1"  required="" name="tinggi_badan"  class="form-control " />
                                                                                                                                         </div>
                                                                                                                                         <small class="form-text">Tinggi Badan Siswa</small>
                                                                                                                                     </div>
                                                                                                                                     <div class="form-group col-md-6">
                                                                                                                                         <label class="control-label" for="berat_badan">Berat Badan <span class="text-danger">*</span></label>
                                                                                                                                         <div id="ctrl-berat_badan-holder" class=""> 
-                                                                                                                                            <input id="ctrl-berat_badan"  value="<?php  echo $this->set_field_value('berat_badan',""); ?>" type="number" placeholder="Berat Badan" step="1"  required="" name="berat_badan"  class="form-control " />
+                                                                                                                                            <input id="ctrl-berat_badan"  value="<?php  echo $this->set_field_value('berat_badan',""); ?>" type="number" placeholder="Berat Badan" min="10" max="100" step="1"  required="" name="berat_badan"  class="form-control " />
                                                                                                                                             </div>
                                                                                                                                             <small class="form-text">Satuan dalam kilogram</small>
                                                                                                                                         </div>
