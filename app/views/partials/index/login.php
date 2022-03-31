@@ -2,7 +2,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-sm-4">
-            <div class="my-4 p-3 bg-light">
+            <div class="my-4 p-3">
                 
                 <div>
                     <h4><i class="fa fa-key"></i> User Login</h4>
@@ -51,8 +51,8 @@
                         <hr />
                         
                         <div class="text-center">
-                            Don't Have an Account? <a href="<?php print_link("index/register") ?>" class="btn btn-success">Register
-                            <i class="fa fa-user"></i></a>
+                            Belum punya akun  <a href="<?php print_link("index/register") ?>" class="btn btn-success rounded">Daftar
+                            </a>
                         </div>
                         
                     </form>

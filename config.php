@@ -20,7 +20,7 @@ $site_addr = rtrim($site_addr, "/\\") . "/";
 // Can Be Set Manually Like "http://localhost/mysite/".
 define("SITE_ADDR", $site_addr);
 
-define("APP_ID", "f105a32316622d16ad3f7140f27b25c7");
+define("APP_ID", "22f713f38a11707ad2ad86910e1f4e22");
 
 // Application Default Color (Mostly Used By Mobile)
 define("META_THEME_COLOR", "#000000");
@@ -87,7 +87,7 @@ define("DEFAULT_EMAIL_ACCOUNT_NAME", "");
 define("DB_HOST", "localhost");
 define("DB_USERNAME", "root");
 define("DB_PASSWORD", "");
-define("DB_NAME", "db_ppdb_22");
+define("DB_NAME", "ppdb_data");
 define("DB_TYPE", "mysql");
 define("DB_PORT", "");
 define("DB_CHARSET", "utf8");
@@ -97,7 +97,7 @@ define("ORDER_TYPE", "DESC");  //Default Order Type
 
 // Active User Profile Details
 define('USER_ID',(isset($_SESSION[APP_ID.'user_data']) ? $_SESSION[APP_ID.'user_data']['id_user'] : null ));
-define('USER_NAME',(isset($_SESSION[APP_ID.'user_data']) ? $_SESSION[APP_ID.'user_data']['nama'] : null ));
+define('USER_NAME',(isset($_SESSION[APP_ID.'user_data']) ? $_SESSION[APP_ID.'user_data']['nama_user'] : null ));
 define('USER_EMAIL',(isset($_SESSION[APP_ID.'user_data']) ? $_SESSION[APP_ID.'user_data']['email'] : null ));
 define('USER_PHOTO',(isset($_SESSION[APP_ID.'user_data']) ? $_SESSION[APP_ID.'user_data']['profil'] : null ));
 define('USER_ROLE',(isset($_SESSION[APP_ID.'user_data']) ? $_SESSION[APP_ID.'user_data']['role'] : null ));

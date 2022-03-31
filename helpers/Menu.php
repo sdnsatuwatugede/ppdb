@@ -22,60 +22,6 @@ class Menu{
 		),
 		
 		array(
-			'path' => 'data_tempat', 
-			'label' => 'Data Rincian', 
-			'icon' => '<i class="fa fa-angle-double-right "></i>','submenu' => array(
-		array(
-			'path' => 'data_agama', 
-			'label' => 'Data Agama', 
-			'icon' => '<i class="fa fa-adjust "></i>'
-		),
-		
-		array(
-			'path' => 'data_kebutuhan_khs', 
-			'label' => 'Data Berkebutuhan Khusus', 
-			'icon' => '<i class="fa fa-align-justify "></i>'
-		),
-		
-		array(
-			'path' => 'data_tranportasi', 
-			'label' => 'Data Transportasi', 
-			'icon' => '<i class="fa fa-bus "></i>'
-		),
-		
-		array(
-			'path' => 'data_tempat', 
-			'label' => 'Data Tempat', 
-			'icon' => '<i class="fa fa-align-justify "></i>'
-		),
-		
-		array(
-			'path' => 'db_pekerjaan', 
-			'label' => 'Data Pekerjaan', 
-			'icon' => '<i class="fa fa-cab "></i>'
-		),
-		
-		array(
-			'path' => 'db_penghasilan', 
-			'label' => 'Data Penghasilan', 
-			'icon' => '<i class="fa fa-calendar-check-o "></i>'
-		),
-		
-		array(
-			'path' => 'pendidikan', 
-			'label' => 'Data Pendidikan', 
-			'icon' => '<i class="fa fa-user "></i>'
-		),
-		
-		array(
-			'path' => 'db_rincian', 
-			'label' => 'Data Rincian', 
-			'icon' => '<i class="fa fa-archive "></i>'
-		)
-	)
-		),
-		
-		array(
 			'path' => 'user', 
 			'label' => 'User', 
 			'icon' => '<i class="fa fa-users "></i>'
@@ -84,243 +30,27 @@ class Menu{
 		
 	
 	
-			public static $no_pendaftaran = array(
-		array(
-			"value" => "PPDB-22-001", 
-			"label" => "PPDB-22-001", 
-		),
-		array(
-			"value" => "PPDB-22-002", 
-			"label" => "PPDB-22-002", 
-		),
-		array(
-			"value" => "PPDB-22-003", 
-			"label" => "PPDB-22-003", 
-		),
-		array(
-			"value" => "PPDB-22-004", 
-			"label" => "PPDB-22-004", 
-		),
-		array(
-			"value" => "PPDB-22-005", 
-			"label" => "PPDB-22-005", 
-		),
-		array(
-			"value" => "PPDB-22-006", 
-			"label" => "PPDB-22-006", 
-		),
-		array(
-			"value" => "PPDB-22-007", 
-			"label" => "PPDB-22-007", 
-		),
-		array(
-			"value" => "PPDB-22-008", 
-			"label" => "PPDB-22-008", 
-		),
-		array(
-			"value" => "PPDB-22-009", 
-			"label" => "PPDB-22-009", 
-		),
-		array(
-			"value" => "PPDB-22-010", 
-			"label" => "PPDB-22-010", 
-		),
-		array(
-			"value" => "PPDB-22-011", 
-			"label" => "PPDB-22-011", 
-		),
-		array(
-			"value" => "PPDB-22-012", 
-			"label" => "PPDB-22-012", 
-		),
-		array(
-			"value" => "PPDB-22-013", 
-			"label" => "PPDB-22-013", 
-		),
-		array(
-			"value" => "PPDB-22-014", 
-			"label" => "PPDB-22-014", 
-		),
-		array(
-			"value" => "PPDB-22-015", 
-			"label" => "PPDB-22-015", 
-		),
-		array(
-			"value" => "PPDB-22-016", 
-			"label" => "PPDB-22-016", 
-		),
-		array(
-			"value" => "PPDB-22-017", 
-			"label" => "PPDB-22-017", 
-		),
-		array(
-			"value" => "PPDB-22-018", 
-			"label" => "PPDB-22-018", 
-		),
-		array(
-			"value" => "PPDB-22-019", 
-			"label" => "PPDB-22-019", 
-		),
-		array(
-			"value" => "PPDB-22-020", 
-			"label" => "PPDB-22-020", 
-		),
-		array(
-			"value" => "PPDB-22-021", 
-			"label" => "PPDB-22-021", 
-		),
-		array(
-			"value" => "PPDB-22-022", 
-			"label" => "PPDB-22-022", 
-		),
-		array(
-			"value" => "PPDB-22-023", 
-			"label" => "PPDB-22-023", 
-		),
-		array(
-			"value" => "PPDB-22-024", 
-			"label" => "PPDB-22-024", 
-		),
-		array(
-			"value" => "PPDB-22-025", 
-			"label" => "PPDB-22-025", 
-		),
-		array(
-			"value" => "PPDB-22-026", 
-			"label" => "PPDB-22-026", 
-		),
-		array(
-			"value" => "PPDB-22-027", 
-			"label" => "PPDB-22-027", 
-		),
-		array(
-			"value" => "PPDB-22-028", 
-			"label" => "PPDB-22-028", 
-		),
-		array(
-			"value" => "PPDB-22-029", 
-			"label" => "PPDB-22-029", 
-		),
-		array(
-			"value" => "PPDB-22-030", 
-			"label" => "PPDB-22-030", 
-		),
-		array(
-			"value" => "PPDB-22-031", 
-			"label" => "PPDB-22-031", 
-		),
-		array(
-			"value" => "PPDB-22-032", 
-			"label" => "PPDB-22-032", 
-		),
-		array(
-			"value" => "PPDB-22-033", 
-			"label" => "PPDB-22-033", 
-		),
-		array(
-			"value" => "PPDB-22-034", 
-			"label" => "PPDB-22-034", 
-		),
-		array(
-			"value" => "PPDB-22-035", 
-			"label" => "PPDB-22-035", 
-		),
-		array(
-			"value" => "PPDB-22-036", 
-			"label" => "PPDB-22-036", 
-		),
-		array(
-			"value" => "PPDB-22-037", 
-			"label" => "PPDB-22-037", 
-		),
-		array(
-			"value" => "PPDB-22-038", 
-			"label" => "PPDB-22-038", 
-		),
-		array(
-			"value" => "PPDB-22-039", 
-			"label" => "PPDB-22-039", 
-		),
-		array(
-			"value" => "PPDB-22-040", 
-			"label" => "PPDB-22-040", 
-		),
-		array(
-			"value" => "PPDB-22-041", 
-			"label" => "PPDB-22-041", 
-		),
-		array(
-			"value" => "PPDB-22-042", 
-			"label" => "PPDB-22-042", 
-		),
-		array(
-			"value" => "PPDB-22-043", 
-			"label" => "PPDB-22-043", 
-		),
-		array(
-			"value" => "PPDB-22-044", 
-			"label" => "PPDB-22-044", 
-		),
-		array(
-			"value" => "PPDB-22-045", 
-			"label" => "PPDB-22-045", 
-		),
-		array(
-			"value" => "PPDB-22-046", 
-			"label" => "PPDB-22-046", 
-		),
-		array(
-			"value" => "PPDB-22-047", 
-			"label" => "PPDB-22-047", 
-		),
-		array(
-			"value" => "PPDB-22-048", 
-			"label" => "PPDB-22-048", 
-		),
-		array(
-			"value" => "PPDB-22-049", 
-			"label" => "PPDB-22-049", 
-		),
-		array(
-			"value" => "PPDB-22-050", 
-			"label" => "PPDB-22-050", 
-		),
-		array(
-			"value" => "PPDB-22-051", 
-			"label" => "PPDB-22-051", 
-		),
-		array(
-			"value" => "PPDB-22-052", 
-			"label" => "PPDB-22-052", 
-		),
-		array(
-			"value" => "PPDB-22-053", 
-			"label" => "PPDB-22-053", 
-		),
-		array(
-			"value" => "PPDB-22-054", 
-			"label" => "PPDB-22-054", 
-		),
-		array(
-			"value" => "PPDB-22-055", 
-			"label" => "PPDB-22-055", 
-		),
-		array(
-			"value" => "PPDB-22-056", 
-			"label" => "PPDB-22-056", 
-		),);
-		
 			public static $jenis_kelamin = array(
 		array(
-			"value" => "laki - laki", 
+			"value" => "Laki - laki", 
 			"label" => "Laki - Laki", 
 		),
 		array(
-			"value" => "perempuan", 
+			"value" => "Perempuan", 
 			"label" => "Perempuan", 
 		),);
 		
-			public static $agama = array(
+			public static $kewarga = array(
+		array(
+			"value" => "Indonesia", 
+			"label" => "Indonesia (WNI)", 
+		),
+		array(
+			"value" => "Asing", 
+			"label" => "Asing (WNI)", 
+		),);
+		
+			public static $Agama = array(
 		array(
 			"value" => "Islam", 
 			"label" => "Islam", 
@@ -330,8 +60,8 @@ class Menu{
 			"label" => "Kristen", 
 		),
 		array(
-			"value" => "Khatolik", 
-			"label" => "Khatolik", 
+			"value" => "Katholik", 
+			"label" => "Katholik", 
 		),
 		array(
 			"value" => "Hindu", 
@@ -342,22 +72,146 @@ class Menu{
 			"label" => "Budha", 
 		),
 		array(
-			"value" => "Khonghucu", 
-			"label" => "Khonghucu", 
-		),
-		array(
-			"value" => "Kepercayaan", 
-			"label" => "Kepercayaan", 
+			"value" => "Konghucu", 
+			"label" => "Konghucu", 
 		),);
 		
-			public static $kewarga = array(
+			public static $keb_khusus_s = array(
 		array(
-			"value" => "indonesia", 
-			"label" => "Indonesia", 
+			"value" => "Tidak", 
+			"label" => "Tidak", 
 		),
 		array(
-			"value" => "asing", 
-			"label" => "Asing", 
+			"value" => "Netra (A)", 
+			"label" => "Netra (A)", 
+		),
+		array(
+			"value" => "Rungu (B)", 
+			"label" => "Rungu (B)", 
+		),
+		array(
+			"value" => "Grahita Ringan ©", 
+			"label" => "Grahita Ringan ©", 
+		),
+		array(
+			"value" => "Grahita Sedang (C1)", 
+			"label" => "Grahita Sedang (C1)", 
+		),
+		array(
+			"value" => "Daksa Ringan (D)", 
+			"label" => "Daksa Ringan (D)", 
+		),
+		array(
+			"value" => "Daksa Sedang (D1)", 
+			"label" => "Daksa Sedang (D1)", 
+		),
+		array(
+			"value" => "Laras ( E)", 
+			"label" => "Laras ( E)", 
+		),
+		array(
+			"value" => "Wicara (F)", 
+			"label" => "Wicara (F)", 
+		),
+		array(
+			"value" => "Tuna Ganda (G)", 
+			"label" => "Tuna Ganda (G)", 
+		),
+		array(
+			"value" => "Hiperaktif (G)", 
+			"label" => "Hiperaktif (G)", 
+		),
+		array(
+			"value" => "Hiperaktif (H)", 
+			"label" => "Hiperaktif (H)", 
+		),
+		array(
+			"value" => "Cerdas Istimewa (i)", 
+			"label" => "Cerdas Istimewa (i)", 
+		),
+		array(
+			"value" => "Bakat Istimewa (J)", 
+			"label" => "Bakat Istimewa (J)", 
+		),
+		array(
+			"value" => "Kesulitan Belajar (K)", 
+			"label" => "Kesulitan Belajar (K)", 
+		),
+		array(
+			"value" => "Indigo (O)", 
+			"label" => "Indigo (O)", 
+		),
+		array(
+			"value" => "Down Sindrome (P)", 
+			"label" => "Down Sindrome (P)", 
+		),
+		array(
+			"value" => "Autis (Q)", 
+			"label" => "Autis (Q)", 
+		),);
+		
+			public static $tmp_tg = array(
+		array(
+			"value" => "Bersama Orang tua", 
+			"label" => "Bersama Orang tua", 
+		),
+		array(
+			"value" => "Wali", 
+			"label" => "Wali", 
+		),
+		array(
+			"value" => "Kos", 
+			"label" => "Kos", 
+		),
+		array(
+			"value" => "Asrama", 
+			"label" => "Asrama", 
+		),
+		array(
+			"value" => "Panti Asuhan", 
+			"label" => "Panti Asuhan", 
+		),
+		array(
+			"value" => "Lainnya", 
+			"label" => "Lainnya", 
+		),);
+		
+			public static $moda_trans = array(
+		array(
+			"value" => "Jalan Kaki", 
+			"label" => "Jalan Kaki", 
+		),
+		array(
+			"value" => "Kendaraan Pribadi", 
+			"label" => "Kendaraan Pribadi", 
+		),
+		array(
+			"value" => "Kendaraan Umum/Angkot/Pete-pete", 
+			"label" => "Kendaraan Umum/Angkot/Pete-pete", 
+		),
+		array(
+			"value" => "Jemputan Sekolah", 
+			"label" => "Jemputan Sekolah", 
+		),
+		array(
+			"value" => "Kereta Api", 
+			"label" => "Kereta Api", 
+		),
+		array(
+			"value" => "Ojek", 
+			"label" => "Ojek", 
+		),
+		array(
+			"value" => "Andong/Bendi/Sado/Dokar/Delman/Beca", 
+			"label" => "Andong/Bendi/Sado/Dokar/Delman/Beca", 
+		),
+		array(
+			"value" => "Perahu Penyebrangan/Rakit/Getek", 
+			"label" => "Perahu Penyebrangan/Rakit/Getek", 
+		),
+		array(
+			"value" => "Lainnya", 
+			"label" => "Lainnya", 
 		),);
 		
 			public static $th_lhr_ayah = array(
@@ -632,18 +486,164 @@ class Menu{
 		array(
 			"value" => "2017", 
 			"label" => "2017", 
+		),);
+		
+			public static $pendidikan_ayah = array(
+		array(
+			"value" => "Tidak Sekolah", 
+			"label" => "Tidak Sekolah", 
 		),
 		array(
-			"value" => "2018", 
-			"label" => "2018", 
+			"value" => "Putus SD", 
+			"label" => "Putus SD", 
 		),
 		array(
-			"value" => "2019", 
-			"label" => "2019", 
+			"value" => "SD sederajat", 
+			"label" => "SD sederajat", 
 		),
 		array(
-			"value" => "2020", 
-			"label" => "2020", 
+			"value" => "SMP Sederajat", 
+			"label" => "SMP Sederajat", 
+		),
+		array(
+			"value" => "SMA Sederajat", 
+			"label" => "SMA Sederajat", 
+		),
+		array(
+			"value" => "D1", 
+			"label" => "D1", 
+		),
+		array(
+			"value" => "D2", 
+			"label" => "D2", 
+		),
+		array(
+			"value" => "D3", 
+			"label" => "D3", 
+		),
+		array(
+			"value" => "D4/S1", 
+			"label" => "D4/S1", 
+		),
+		array(
+			"value" => "S2", 
+			"label" => "S2", 
+		),
+		array(
+			"value" => "S3", 
+			"label" => "S3", 
+		),);
+		
+			public static $pekerjaan_ayah = array(
+		array(
+			"value" => "Tidak bekerja", 
+			"label" => "Tidak bekerja", 
+		),
+		array(
+			"value" => "Nelayan", 
+			"label" => "Nelayan", 
+		),
+		array(
+			"value" => "Petani", 
+			"label" => "Petani", 
+		),
+		array(
+			"value" => "Peternak", 
+			"label" => "Peternak", 
+		),
+		array(
+			"value" => "PNS/TNI/Polri", 
+			"label" => "PNS/TNI/Polri", 
+		),
+		array(
+			"value" => "Karyawan Swasta", 
+			"label" => "Karyawan Swasta", 
+		),
+		array(
+			"value" => "Pedagang Kecil", 
+			"label" => "Pedagang Kecil", 
+		),
+		array(
+			"value" => "Pedagang Besar", 
+			"label" => "Pedagang Besar", 
+		),
+		array(
+			"value" => "Wiraswasta", 
+			"label" => "Wiraswasta", 
+		),
+		array(
+			"value" => "Wirausaha", 
+			"label" => "Wirausaha", 
+		),
+		array(
+			"value" => "Buruh", 
+			"label" => "Buruh", 
+		),
+		array(
+			"value" => "Pensiunan", 
+			"label" => "Pensiunan", 
+		),
+		array(
+			"value" => "Tenaga Kerja Indonesia", 
+			"label" => "Tenaga Kerja Indonesia", 
+		),
+		array(
+			"value" => "Tidak dapat diterapkan", 
+			"label" => "Tidak dapat diterapkan", 
+		),
+		array(
+			"value" => "Sudah Meninggal", 
+			"label" => "Sudah Meninggal", 
+		),
+		array(
+			"value" => "Lainnya", 
+			"label" => "Lainnya", 
+		),);
+		
+			public static $penghasilan_ay = array(
+		array(
+			"value" => "Kurang dari Rp 1.000.000", 
+			"label" => "Kurang dari Rp 1.000.000", 
+		),
+		array(
+			"value" => "Rp 1.000.000 - Rp 2.000.000", 
+			"label" => "Rp 1.000.000 - Rp 2.000.000", 
+		),
+		array(
+			"value" => "Lebih dari Rp 2.000.000", 
+			"label" => "Lebih dari Rp 2.000.000", 
+		),
+		array(
+			"value" => "Kurang dari Rp. 500,000", 
+			"label" => "Kurang dari Rp. 500,000", 
+		),
+		array(
+			"value" => "Rp. 500,000 - Rp. 999,999", 
+			"label" => "Rp. 500,000 - Rp. 999,999", 
+		),
+		array(
+			"value" => "Rp. 1,000,000 - Rp. 1,999,999", 
+			"label" => "Rp. 1,000,000 - Rp. 1,999,999", 
+		),
+		array(
+			"value" => "Rp. 2,000,000 - Rp. 4,999,999", 
+			"label" => "Rp. 2,000,000 - Rp. 4,999,999", 
+		),
+		array(
+			"value" => "Rp. 5,000,000 - Rp. 20,000,000", 
+			"label" => "Rp. 5,000,000 - Rp. 20,000,000", 
+		),
+		array(
+			"value" => "Lebih dari Rp. 20,000,000", 
+			"label" => "Lebih dari Rp. 20,000,000", 
+		),
+		array(
+			"value" => "Tidak Berpenghasilan", 
+			"label" => "Tidak Berpenghasilan", 
+		),
+		array(
+			"value" => "Lainnya", 
+			"label" => "Lainnya", 
 		),);
 		
 			public static $role = array(
@@ -656,12 +656,8 @@ class Menu{
 			"label" => "Guru", 
 		),
 		array(
-			"value" => "User", 
-			"label" => "User", 
-		),
-		array(
-			"value" => "siswa", 
-			"label" => "siswa", 
+			"value" => "Siswa", 
+			"label" => "Siswa", 
 		),);
 		
 }

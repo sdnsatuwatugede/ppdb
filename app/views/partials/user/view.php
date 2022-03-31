@@ -28,7 +28,7 @@ $show_export_btn = $this->show_export_btn;
         <div class="container">
             <div class="row ">
                 <div class="col ">
-                    <h4 class="record-title">View  User</h4>
+                    <h4 class="record-title"><div class="custom-1">Akun Detail</div></h4>
                 </div>
             </div>
         </div>
@@ -52,13 +52,23 @@ $show_export_btn = $this->show_export_btn;
                             <table class="table table-hover table-borderless table-striped">
                                 <!-- Table Body Start -->
                                 <tbody class="page-data" id="page-data-<?php echo $page_element_id; ?>">
-                                    <tr  class="td-id_user">
-                                        <th class="title"> Id User: </th>
-                                        <td class="value"> <?php echo $data['id_user']; ?></td>
-                                    </tr>
-                                    <tr  class="td-nama">
-                                        <th class="title"> Nama: </th>
-                                        <td class="value"> <?php echo $data['nama']; ?></td>
+                                    <tr  class="td-nama_user">
+                                        <th class="title"> Nama User: </th>
+                                        <td class="value">
+                                            <span <?php if($can_edit){ ?> data-value="<?php echo $data['nama_user']; ?>" 
+                                                data-pk="<?php echo $data['id_user'] ?>" 
+                                                data-url="<?php print_link("user/editfield/" . urlencode($data['id_user'])); ?>" 
+                                                data-name="nama_user" 
+                                                data-title="Nama User" 
+                                                data-placement="left" 
+                                                data-toggle="click" 
+                                                data-type="text" 
+                                                data-mode="popover" 
+                                                data-showbuttons="left" 
+                                                class="is-editable" <?php } ?>>
+                                                <?php echo $data['nama_user']; ?> 
+                                            </span>
+                                        </td>
                                     </tr>
                                     <tr  class="td-email">
                                         <th class="title"> Email: </th>

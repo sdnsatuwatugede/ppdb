@@ -26,16 +26,16 @@ $show_pagination = $this->show_pagination;
     <?php
     if( $show_header == true ){
     ?>
-    <div  class="bg-light p-3 mb-3">
+    <div  class="p-3 mb-3">
         <div class="container-fluid">
             <div class="row ">
                 <div class="col ">
-                    <h4 class="record-title">User</h4>
+                    <h4 class="record-title"><div class="custom-1">user</div></h4>
                 </div>
                 <div class="col-sm-3 ">
                     <?php if($can_add){ ?>
                     <a  class="btn btn btn-primary my-1" href="<?php print_link("user/add") ?>">
-                        <i class="fa fa-user-plus "></i>                                
+                        <i class="fa fa-plus"></i>                              
                         Tambah User 
                     </a>
                     <?php } ?>
@@ -125,8 +125,7 @@ $show_pagination = $this->show_pagination;
                                                 </th>
                                                 <?php } ?>
                                                 <th class="td-sno">#</th>
-                                                <th  class="td-id_user"> Id User</th>
-                                                <th  class="td-nama"> Nama</th>
+                                                <th  class="td-nama_user"> Nama User</th>
                                                 <th  class="td-email"> Email</th>
                                                 <th  class="td-profil"> Profil</th>
                                                 <th  class="td-role"> Role</th>
@@ -154,8 +153,21 @@ $show_pagination = $this->show_pagination;
                                                     </th>
                                                     <?php } ?>
                                                     <th class="td-sno"><?php echo $counter; ?></th>
-                                                    <td class="td-id_user"><a href="<?php print_link("user/view/$data[id_user]") ?>"><?php echo $data['id_user']; ?></a></td>
-                                                    <td class="td-nama"> <?php echo $data['nama']; ?></td>
+                                                    <td class="td-nama_user">
+                                                        <span <?php if($can_edit){ ?> data-value="<?php echo $data['nama_user']; ?>" 
+                                                            data-pk="<?php echo $data['id_user'] ?>" 
+                                                            data-url="<?php print_link("user/editfield/" . urlencode($data['id_user'])); ?>" 
+                                                            data-name="nama_user" 
+                                                            data-title="Nama User" 
+                                                            data-placement="left" 
+                                                            data-toggle="click" 
+                                                            data-type="text" 
+                                                            data-mode="popover" 
+                                                            data-showbuttons="left" 
+                                                            class="is-editable" <?php } ?>>
+                                                            <?php echo $data['nama_user']; ?> 
+                                                        </span>
+                                                    </td>
                                                     <td class="td-email"><a href="<?php print_link("mailto:$data[email]") ?>"><?php echo $data['email']; ?></a></td>
                                                     <td class="td-profil"><?php Html :: page_img($data['profil'],50,50,1); ?></td>
                                                     <td class="td-role"> <?php echo $data['role']; ?></td>

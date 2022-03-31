@@ -23,16 +23,16 @@ class IndexController extends BaseController{
 	private function login_user($username , $password_text, $rememberme = false){
 		$db = $this->GetModel();
 		$username = filter_var($username, FILTER_SANITIZE_STRING);
-		$db->where("nama", $username)->orWhere("email", $username);
+		$db->where("nama_user", $username)->orWhere("email", $username);
 		$tablename = $this->tablename;
 		$user = $db->getOne($tablename);
 		if(!empty($user)){
 			//Verify User Password Text With DB Password Hash Value.
 			//Uses PHP password_verify() function with default options
-			$password_hash = $user['pass'];
-			$this->modeldata['pass'] = $password_hash; //update the modeldata with the password hash
+			$password_hash = $user['password'];
+			$this->modeldata['password'] = $password_hash; //update the modeldata with the password hash
 			if(password_verify($password_text,$password_hash)){
-        		unset($user['pass']); //Remove user password. No need to store it in the session
+        		unset($user['password']); //Remove user password. No need to store it in the session
 				set_session("user_data", $user); // Set active user data in a sessions
 				//if Remeber Me, Set Cookie
 				if($rememberme == true){
@@ -102,36 +102,35 @@ class IndexController extends BaseController{
 			$request = $this->request;
 			$db = $this->GetModel();
 			$tablename = $this->tablename;
-			$fields = $this->fields = array("nama","pass","email","profil","role"); //registration fields
+			$fields = $this->fields = array("nama_user","password","email","profil","role"); //registration fields
 			$postdata = $this->format_request_data($formdata);
 			$cpassword = $postdata['confirm_password'];
-			$password = $postdata['pass'];
+			$password = $postdata['password'];
 			if($cpassword != $password){
 				$this->view->page_error[] = "Your password confirmation is not consistent";
 			}
-			$this->validate_captcha = true; //will check for captcha validation
 			$this->rules_array = array(
-				'nama' => 'required',
-				'pass' => 'required',
+				'nama_user' => 'required',
+				'password' => 'required',
 				'email' => 'required|valid_email',
 				'profil' => 'required',
 				'role' => 'required',
 			);
 			$this->sanitize_array = array(
-				'nama' => 'sanitize_string',
+				'nama_user' => 'sanitize_string',
 				'email' => 'sanitize_string',
 				'profil' => 'sanitize_string',
 				'role' => 'sanitize_string',
 			);
 			$this->filter_vals = true; //set whether to remove empty fields
 			$modeldata = $this->modeldata = $this->validate_form($postdata);
-			$password_text = $modeldata['pass'];
+			$password_text = $modeldata['password'];
 			//update modeldata with the password hash
-			$modeldata['pass'] = $this->modeldata['pass'] = password_hash($password_text , PASSWORD_DEFAULT);
+			$modeldata['password'] = $this->modeldata['password'] = password_hash($password_text , PASSWORD_DEFAULT);
 			//Check if Duplicate Record Already Exit In The Database
-			$db->where("nama", $modeldata['nama']);
+			$db->where("nama_user", $modeldata['nama_user']);
 			if($db->has($tablename)){
-				$this->view->page_error[] = $modeldata['nama']." Already exist!";
+				$this->view->page_error[] = $modeldata['nama_user']." Already exist!";
 			}
 			//Check if Duplicate Record Already Exit In The Database
 			$db->where("email", $modeldata['email']);
@@ -141,7 +140,7 @@ class IndexController extends BaseController{
 			if($this->validated()){
 				$rec_id = $this->rec_id = $db->insert($tablename, $modeldata);
 				if($rec_id){
-					redirect_to_page('index');
+					$this->login_user($modeldata['email'] , $password_text);
 					return;
 				}
 				else{
@@ -149,7 +148,7 @@ class IndexController extends BaseController{
 				}
 			}
 		}
-		$page_title = $this->view->page_title = "Add New User";
+		$page_title = $this->view->page_title = "Register";
 		return $this->render_view("index/register.php");
 	}
 	/**

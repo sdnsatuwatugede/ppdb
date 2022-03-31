@@ -28,7 +28,7 @@ $show_export_btn = $this->show_export_btn;
         <div class="container">
             <div class="row ">
                 <div class="col ">
-                    <h4 class="record-title">Data Siswa</h4>
+                    <h4 class="record-title"><div class="custom-1">Data Siswa</div></h4>
                 </div>
             </div>
         </div>
@@ -55,16 +55,14 @@ $show_export_btn = $this->show_export_btn;
                                     <tr  class="td-no_pendaftaran">
                                         <th class="title"> No Pendaftaran: </th>
                                         <td class="value">
-                                            <span <?php if($can_edit){ ?> data-step="1" 
-                                                data-source='<?php echo json_encode_quote(Menu :: $no_pendaftaran); ?>' 
-                                                data-value="<?php echo $data['no_pendaftaran']; ?>" 
+                                            <span <?php if($can_edit){ ?> data-value="<?php echo $data['no_pendaftaran']; ?>" 
                                                 data-pk="<?php echo $data['id'] ?>" 
                                                 data-url="<?php print_link("data_siswa/editfield/" . urlencode($data['id'])); ?>" 
                                                 data-name="no_pendaftaran" 
-                                                data-title=" No Pendaftaran" 
+                                                data-title="Enter No Pendaftaran" 
                                                 data-placement="left" 
                                                 data-toggle="click" 
-                                                data-type="number" 
+                                                data-type="text" 
                                                 data-mode="popover" 
                                                 data-showbuttons="left" 
                                                 class="is-editable" <?php } ?>>
@@ -75,12 +73,12 @@ $show_export_btn = $this->show_export_btn;
                                     <tr  class="td-tanggal_daftar">
                                         <th class="title"> Tanggal Daftar: </th>
                                         <td class="value">
-                                            <span <?php if($can_edit){ ?> data-flatpickr="{altFormat: 'Y-m-d H:i:s', enableTime: false, minDate: '', maxDate: '<?php echo date('Y-m-d', strtotime('+3day')); ?>'}" 
+                                            <span <?php if($can_edit){ ?> data-flatpickr="{altFormat: 'd-m-Y', enableTime: false, minDate: '', maxDate: ''}" 
                                                 data-value="<?php echo $data['tanggal_daftar']; ?>" 
                                                 data-pk="<?php echo $data['id'] ?>" 
                                                 data-url="<?php print_link("data_siswa/editfield/" . urlencode($data['id'])); ?>" 
                                                 data-name="tanggal_daftar" 
-                                                data-title="Tanggal Daftar" 
+                                                data-title="Enter Tanggal Daftar" 
                                                 data-placement="left" 
                                                 data-toggle="click" 
                                                 data-type="flatdatetimepicker" 
@@ -129,9 +127,10 @@ $show_export_btn = $this->show_export_btn;
                                         </td>
                                     </tr>
                                     <tr  class="td-nik_siswa">
-                                        <th class="title"> NIK Siswa: </th>
+                                        <th class="title"> Nik Siswa: </th>
                                         <td class="value">
-                                            <span <?php if($can_edit){ ?> data-value="<?php echo $data['nik_siswa']; ?>" 
+                                            <span <?php if($can_edit){ ?> data-min="1111111111111111" 
+                                                data-value="<?php echo $data['nik_siswa']; ?>" 
                                                 data-pk="<?php echo $data['id'] ?>" 
                                                 data-url="<?php print_link("data_siswa/editfield/" . urlencode($data['id'])); ?>" 
                                                 data-name="nik_siswa" 
@@ -167,7 +166,7 @@ $show_export_btn = $this->show_export_btn;
                                     <tr  class="td-tanggal_lhr">
                                         <th class="title"> Tanggal Lahir: </th>
                                         <td class="value">
-                                            <span <?php if($can_edit){ ?> data-flatpickr="{ enableTime: false, minDate: '', maxDate: ''}" 
+                                            <span <?php if($can_edit){ ?> data-flatpickr="{altFormat: 'd-m-Y', enableTime: false, minDate: '', maxDate: ''}" 
                                                 data-value="<?php echo $data['tanggal_lhr']; ?>" 
                                                 data-pk="<?php echo $data['id'] ?>" 
                                                 data-url="<?php print_link("data_siswa/editfield/" . urlencode($data['id'])); ?>" 
@@ -184,13 +183,13 @@ $show_export_btn = $this->show_export_btn;
                                         </td>
                                     </tr>
                                     <tr  class="td-no_reg_akte">
-                                        <th class="title"> No Reg Akte: </th>
+                                        <th class="title"> No Register Akte: </th>
                                         <td class="value">
                                             <span <?php if($can_edit){ ?> data-value="<?php echo $data['no_reg_akte']; ?>" 
                                                 data-pk="<?php echo $data['id'] ?>" 
                                                 data-url="<?php print_link("data_siswa/editfield/" . urlencode($data['id'])); ?>" 
                                                 data-name="no_reg_akte" 
-                                                data-title="Nomer Register Akte" 
+                                                data-title="No Register Akte" 
                                                 data-placement="left" 
                                                 data-toggle="click" 
                                                 data-type="text" 
@@ -201,32 +200,70 @@ $show_export_btn = $this->show_export_btn;
                                             </span>
                                         </td>
                                     </tr>
-                                    <tr  class="td-agama">
-                                        <th class="title"> Agama: </th>
+                                    <tr  class="td-kewarga">
+                                        <th class="title"> Kewarganegraan: </th>
                                         <td class="value">
-                                            <span <?php if($can_edit){ ?> data-source='<?php echo json_encode_quote(Menu :: $agama); ?>' 
-                                                data-value="<?php echo $data['agama']; ?>" 
+                                            <span <?php if($can_edit){ ?> data-source='<?php echo json_encode_quote(Menu :: $kewarga); ?>' 
+                                                data-value="<?php echo $data['kewarga']; ?>" 
                                                 data-pk="<?php echo $data['id'] ?>" 
                                                 data-url="<?php print_link("data_siswa/editfield/" . urlencode($data['id'])); ?>" 
-                                                data-name="agama" 
-                                                data-title="Pilih Salah Satu Sesuai Nomer" 
+                                                data-name="kewarga" 
+                                                data-title="Enter Kewarganegraan" 
+                                                data-placement="left" 
+                                                data-toggle="click" 
+                                                data-type="radiolist" 
+                                                data-mode="popover" 
+                                                data-showbuttons="left" 
+                                                class="is-editable" <?php } ?>>
+                                                <?php echo $data['kewarga']; ?> 
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr  class="td-Agama">
+                                        <th class="title"> Agama: </th>
+                                        <td class="value">
+                                            <span <?php if($can_edit){ ?> data-source='<?php echo json_encode_quote(Menu :: $Agama); ?>' 
+                                                data-value="<?php echo $data['Agama']; ?>" 
+                                                data-pk="<?php echo $data['id'] ?>" 
+                                                data-url="<?php print_link("data_siswa/editfield/" . urlencode($data['id'])); ?>" 
+                                                data-name="Agama" 
+                                                data-title="Select a value ..." 
                                                 data-placement="left" 
                                                 data-toggle="click" 
                                                 data-type="select" 
                                                 data-mode="popover" 
                                                 data-showbuttons="left" 
                                                 class="is-editable" <?php } ?>>
-                                                <?php echo $data['agama']; ?> 
+                                                <?php echo $data['Agama']; ?> 
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr  class="td-keb_khusus_s">
+                                        <th class="title"> Kebutuhan Khusus: </th>
+                                        <td class="value">
+                                            <span <?php if($can_edit){ ?> data-source='<?php echo json_encode_quote(Menu :: $keb_khusus_s); ?>' 
+                                                data-value="<?php echo $data['keb_khusus_s']; ?>" 
+                                                data-pk="<?php echo $data['id'] ?>" 
+                                                data-url="<?php print_link("data_siswa/editfield/" . urlencode($data['id'])); ?>" 
+                                                data-name="keb_khusus_s" 
+                                                data-title="Select a value ..." 
+                                                data-placement="left" 
+                                                data-toggle="click" 
+                                                data-type="select" 
+                                                data-mode="popover" 
+                                                data-showbuttons="left" 
+                                                class="is-editable" <?php } ?>>
+                                                <?php echo $data['keb_khusus_s']; ?> 
                                             </span>
                                         </td>
                                     </tr>
                                     <tr  class="td-alamat">
-                                        <th class="title"> Alamat : </th>
+                                        <th class="title"> Alamat: </th>
                                         <td class="value">
                                             <span <?php if($can_edit){ ?> data-pk="<?php echo $data['id'] ?>" 
                                                 data-url="<?php print_link("data_siswa/editfield/" . urlencode($data['id'])); ?>" 
                                                 data-name="alamat" 
-                                                data-title=" Alamat Saat Ini" 
+                                                data-title="Alamat" 
                                                 data-placement="left" 
                                                 data-toggle="click" 
                                                 data-type="textarea" 
@@ -240,9 +277,7 @@ $show_export_btn = $this->show_export_btn;
                                     <tr  class="td-rt">
                                         <th class="title"> RT: </th>
                                         <td class="value">
-                                            <span <?php if($can_edit){ ?> data-max="50" 
-                                                data-step="1" 
-                                                data-value="<?php echo $data['rt']; ?>" 
+                                            <span <?php if($can_edit){ ?> data-value="<?php echo $data['rt']; ?>" 
                                                 data-pk="<?php echo $data['id'] ?>" 
                                                 data-url="<?php print_link("data_siswa/editfield/" . urlencode($data['id'])); ?>" 
                                                 data-name="rt" 
@@ -275,6 +310,24 @@ $show_export_btn = $this->show_export_btn;
                                             </span>
                                         </td>
                                     </tr>
+                                    <tr  class="td-dusun">
+                                        <th class="title"> Dusun: </th>
+                                        <td class="value">
+                                            <span <?php if($can_edit){ ?> data-value="<?php echo $data['dusun']; ?>" 
+                                                data-pk="<?php echo $data['id'] ?>" 
+                                                data-url="<?php print_link("data_siswa/editfield/" . urlencode($data['id'])); ?>" 
+                                                data-name="dusun" 
+                                                data-title="Dusun" 
+                                                data-placement="left" 
+                                                data-toggle="click" 
+                                                data-type="text" 
+                                                data-mode="popover" 
+                                                data-showbuttons="left" 
+                                                class="is-editable" <?php } ?>>
+                                                <?php echo $data['dusun']; ?> 
+                                            </span>
+                                        </td>
+                                    </tr>
                                     <tr  class="td-kelurahan">
                                         <th class="title"> Kelurahan / Desa: </th>
                                         <td class="value">
@@ -282,7 +335,7 @@ $show_export_btn = $this->show_export_btn;
                                                 data-pk="<?php echo $data['id'] ?>" 
                                                 data-url="<?php print_link("data_siswa/editfield/" . urlencode($data['id'])); ?>" 
                                                 data-name="kelurahan" 
-                                                data-title="Kelurahan" 
+                                                data-title="Kelurahan / Desa" 
                                                 data-placement="left" 
                                                 data-toggle="click" 
                                                 data-type="text" 
@@ -293,6 +346,98 @@ $show_export_btn = $this->show_export_btn;
                                             </span>
                                         </td>
                                     </tr>
+                                    <tr  class="td-kec">
+                                        <th class="title"> Kecamatan: </th>
+                                        <td class="value">
+                                            <span <?php if($can_edit){ ?> data-value="<?php echo $data['kec']; ?>" 
+                                                data-pk="<?php echo $data['id'] ?>" 
+                                                data-url="<?php print_link("data_siswa/editfield/" . urlencode($data['id'])); ?>" 
+                                                data-name="kec" 
+                                                data-title="Kecamatan" 
+                                                data-placement="left" 
+                                                data-toggle="click" 
+                                                data-type="text" 
+                                                data-mode="popover" 
+                                                data-showbuttons="left" 
+                                                class="is-editable" <?php } ?>>
+                                                <?php echo $data['kec']; ?> 
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr  class="td-kd_pos">
+                                        <th class="title"> Kode Pos: </th>
+                                        <td class="value">
+                                            <span <?php if($can_edit){ ?> data-value="<?php echo $data['kd_pos']; ?>" 
+                                                data-pk="<?php echo $data['id'] ?>" 
+                                                data-url="<?php print_link("data_siswa/editfield/" . urlencode($data['id'])); ?>" 
+                                                data-name="kd_pos" 
+                                                data-title="Kode Pos" 
+                                                data-placement="left" 
+                                                data-toggle="click" 
+                                                data-type="number" 
+                                                data-mode="popover" 
+                                                data-showbuttons="left" 
+                                                class="is-editable" <?php } ?>>
+                                                <?php echo $data['kd_pos']; ?> 
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr  class="td-tmp_tg">
+                                        <th class="title"> Tempat Tinggal: </th>
+                                        <td class="value">
+                                            <span <?php if($can_edit){ ?> data-source='<?php echo json_encode_quote(Menu :: $tmp_tg); ?>' 
+                                                data-value="<?php echo $data['tmp_tg']; ?>" 
+                                                data-pk="<?php echo $data['id'] ?>" 
+                                                data-url="<?php print_link("data_siswa/editfield/" . urlencode($data['id'])); ?>" 
+                                                data-name="tmp_tg" 
+                                                data-title="Select a value ..." 
+                                                data-placement="left" 
+                                                data-toggle="click" 
+                                                data-type="select" 
+                                                data-mode="popover" 
+                                                data-showbuttons="left" 
+                                                class="is-editable" <?php } ?>>
+                                                <?php echo $data['tmp_tg']; ?> 
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr  class="td-moda_trans">
+                                        <th class="title"> Moda Transportasi: </th>
+                                        <td class="value">
+                                            <span <?php if($can_edit){ ?> data-source='<?php echo json_encode_quote(Menu :: $moda_trans); ?>' 
+                                                data-value="<?php echo $data['moda_trans']; ?>" 
+                                                data-pk="<?php echo $data['id'] ?>" 
+                                                data-url="<?php print_link("data_siswa/editfield/" . urlencode($data['id'])); ?>" 
+                                                data-name="moda_trans" 
+                                                data-title="Select a value ..." 
+                                                data-placement="left" 
+                                                data-toggle="click" 
+                                                data-type="select" 
+                                                data-mode="popover" 
+                                                data-showbuttons="left" 
+                                                class="is-editable" <?php } ?>>
+                                                <?php echo $data['moda_trans']; ?> 
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr  class="td-anak_ke">
+                                        <th class="title"> Anak Ke: </th>
+                                        <td class="value">
+                                            <span <?php if($can_edit){ ?> data-value="<?php echo $data['anak_ke']; ?>" 
+                                                data-pk="<?php echo $data['id'] ?>" 
+                                                data-url="<?php print_link("data_siswa/editfield/" . urlencode($data['id'])); ?>" 
+                                                data-name="anak_ke" 
+                                                data-title="Anak Ke" 
+                                                data-placement="left" 
+                                                data-toggle="click" 
+                                                data-type="number" 
+                                                data-mode="popover" 
+                                                data-showbuttons="left" 
+                                                class="is-editable" <?php } ?>>
+                                                <?php echo $data['anak_ke']; ?> 
+                                            </span>
+                                        </td>
+                                    </tr>
                                     <tr  class="td-nama_ayah">
                                         <th class="title"> Nama Ayah: </th>
                                         <td class="value">
@@ -300,7 +445,7 @@ $show_export_btn = $this->show_export_btn;
                                                 data-pk="<?php echo $data['id'] ?>" 
                                                 data-url="<?php print_link("data_siswa/editfield/" . urlencode($data['id'])); ?>" 
                                                 data-name="nama_ayah" 
-                                                data-title=" Nama Ayah" 
+                                                data-title="Nama Ayah" 
                                                 data-placement="left" 
                                                 data-toggle="click" 
                                                 data-type="text" 
@@ -312,9 +457,10 @@ $show_export_btn = $this->show_export_btn;
                                         </td>
                                     </tr>
                                     <tr  class="td-nik_ayah">
-                                        <th class="title"> NIK Ayah: </th>
+                                        <th class="title"> Nik Ayah: </th>
                                         <td class="value">
-                                            <span <?php if($can_edit){ ?> data-value="<?php echo $data['nik_ayah']; ?>" 
+                                            <span <?php if($can_edit){ ?> data-min="1111111111111111" 
+                                                data-value="<?php echo $data['nik_ayah']; ?>" 
                                                 data-pk="<?php echo $data['id'] ?>" 
                                                 data-url="<?php print_link("data_siswa/editfield/" . urlencode($data['id'])); ?>" 
                                                 data-name="nik_ayah" 
@@ -329,6 +475,82 @@ $show_export_btn = $this->show_export_btn;
                                             </span>
                                         </td>
                                     </tr>
+                                    <tr  class="td-th_lhr_ayah">
+                                        <th class="title"> Tahun Lahir Ayah: </th>
+                                        <td class="value">
+                                            <span <?php if($can_edit){ ?> data-source='<?php echo json_encode_quote(Menu :: $th_lhr_ayah); ?>' 
+                                                data-value="<?php echo $data['th_lhr_ayah']; ?>" 
+                                                data-pk="<?php echo $data['id'] ?>" 
+                                                data-url="<?php print_link("data_siswa/editfield/" . urlencode($data['id'])); ?>" 
+                                                data-name="th_lhr_ayah" 
+                                                data-title="Select a value ..." 
+                                                data-placement="left" 
+                                                data-toggle="click" 
+                                                data-type="select" 
+                                                data-mode="popover" 
+                                                data-showbuttons="left" 
+                                                class="is-editable" <?php } ?>>
+                                                <?php echo $data['th_lhr_ayah']; ?> 
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr  class="td-pendidikan_ayah">
+                                        <th class="title"> Pendidikan Ayah: </th>
+                                        <td class="value">
+                                            <span <?php if($can_edit){ ?> data-source='<?php echo json_encode_quote(Menu :: $pendidikan_ayah); ?>' 
+                                                data-value="<?php echo $data['pendidikan_ayah']; ?>" 
+                                                data-pk="<?php echo $data['id'] ?>" 
+                                                data-url="<?php print_link("data_siswa/editfield/" . urlencode($data['id'])); ?>" 
+                                                data-name="pendidikan_ayah" 
+                                                data-title="Select a value ..." 
+                                                data-placement="left" 
+                                                data-toggle="click" 
+                                                data-type="select" 
+                                                data-mode="popover" 
+                                                data-showbuttons="left" 
+                                                class="is-editable" <?php } ?>>
+                                                <?php echo $data['pendidikan_ayah']; ?> 
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr  class="td-pekerjaan_ayah">
+                                        <th class="title"> Pekerjaan Ayah: </th>
+                                        <td class="value">
+                                            <span <?php if($can_edit){ ?> data-source='<?php echo json_encode_quote(Menu :: $pekerjaan_ayah); ?>' 
+                                                data-value="<?php echo $data['pekerjaan_ayah']; ?>" 
+                                                data-pk="<?php echo $data['id'] ?>" 
+                                                data-url="<?php print_link("data_siswa/editfield/" . urlencode($data['id'])); ?>" 
+                                                data-name="pekerjaan_ayah" 
+                                                data-title="Select a value ..." 
+                                                data-placement="left" 
+                                                data-toggle="click" 
+                                                data-type="select" 
+                                                data-mode="popover" 
+                                                data-showbuttons="left" 
+                                                class="is-editable" <?php } ?>>
+                                                <?php echo $data['pekerjaan_ayah']; ?> 
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr  class="td-penghasilan_ay">
+                                        <th class="title"> Penghasilan Ayah: </th>
+                                        <td class="value">
+                                            <span <?php if($can_edit){ ?> data-source='<?php echo json_encode_quote(Menu :: $penghasilan_ay); ?>' 
+                                                data-value="<?php echo $data['penghasilan_ay']; ?>" 
+                                                data-pk="<?php echo $data['id'] ?>" 
+                                                data-url="<?php print_link("data_siswa/editfield/" . urlencode($data['id'])); ?>" 
+                                                data-name="penghasilan_ay" 
+                                                data-title="Select a value ..." 
+                                                data-placement="left" 
+                                                data-toggle="click" 
+                                                data-type="select" 
+                                                data-mode="popover" 
+                                                data-showbuttons="left" 
+                                                class="is-editable" <?php } ?>>
+                                                <?php echo $data['penghasilan_ay']; ?> 
+                                            </span>
+                                        </td>
+                                    </tr>
                                     <tr  class="td-nama_ibu">
                                         <th class="title"> Nama Ibu: </th>
                                         <td class="value">
@@ -336,7 +558,7 @@ $show_export_btn = $this->show_export_btn;
                                                 data-pk="<?php echo $data['id'] ?>" 
                                                 data-url="<?php print_link("data_siswa/editfield/" . urlencode($data['id'])); ?>" 
                                                 data-name="nama_ibu" 
-                                                data-title=" Nama Ibu" 
+                                                data-title="Nama Ibu" 
                                                 data-placement="left" 
                                                 data-toggle="click" 
                                                 data-type="text" 
@@ -348,13 +570,14 @@ $show_export_btn = $this->show_export_btn;
                                         </td>
                                     </tr>
                                     <tr  class="td-nik_ibu">
-                                        <th class="title"> NIK Ibu: </th>
+                                        <th class="title"> Nik Ibu: </th>
                                         <td class="value">
-                                            <span <?php if($can_edit){ ?> data-value="<?php echo $data['nik_ibu']; ?>" 
+                                            <span <?php if($can_edit){ ?> data-min="1111111111111111" 
+                                                data-value="<?php echo $data['nik_ibu']; ?>" 
                                                 data-pk="<?php echo $data['id'] ?>" 
                                                 data-url="<?php print_link("data_siswa/editfield/" . urlencode($data['id'])); ?>" 
                                                 data-name="nik_ibu" 
-                                                data-title=" Nik Ibu" 
+                                                data-title="Nik Ibu" 
                                                 data-placement="left" 
                                                 data-toggle="click" 
                                                 data-type="number" 
@@ -365,21 +588,205 @@ $show_export_btn = $this->show_export_btn;
                                             </span>
                                         </td>
                                     </tr>
-                                    <tr  class="td-username">
-                                        <th class="title"> Username: </th>
+                                    <tr  class="td-th_lhr_ibu">
+                                        <th class="title"> Tahun Lahir Ibu: </th>
                                         <td class="value">
-                                            <span <?php if($can_edit){ ?> data-value="<?php echo $data['username']; ?>" 
+                                            <span <?php if($can_edit){ ?> data-source='<?php echo json_encode_quote(Menu :: $th_lhr_ayah); ?>' 
+                                                data-value="<?php echo $data['th_lhr_ibu']; ?>" 
                                                 data-pk="<?php echo $data['id'] ?>" 
                                                 data-url="<?php print_link("data_siswa/editfield/" . urlencode($data['id'])); ?>" 
-                                                data-name="username" 
-                                                data-title="Username" 
+                                                data-name="th_lhr_ibu" 
+                                                data-title="Select a value ..." 
+                                                data-placement="left" 
+                                                data-toggle="click" 
+                                                data-type="select" 
+                                                data-mode="popover" 
+                                                data-showbuttons="left" 
+                                                class="is-editable" <?php } ?>>
+                                                <?php echo $data['th_lhr_ibu']; ?> 
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr  class="td-pendidikan_ibu">
+                                        <th class="title"> Pendidikan Ibu: </th>
+                                        <td class="value">
+                                            <span <?php if($can_edit){ ?> data-source='<?php echo json_encode_quote(Menu :: $pendidikan_ayah); ?>' 
+                                                data-value="<?php echo $data['pendidikan_ibu']; ?>" 
+                                                data-pk="<?php echo $data['id'] ?>" 
+                                                data-url="<?php print_link("data_siswa/editfield/" . urlencode($data['id'])); ?>" 
+                                                data-name="pendidikan_ibu" 
+                                                data-title="Select a value ..." 
+                                                data-placement="left" 
+                                                data-toggle="click" 
+                                                data-type="select" 
+                                                data-mode="popover" 
+                                                data-showbuttons="left" 
+                                                class="is-editable" <?php } ?>>
+                                                <?php echo $data['pendidikan_ibu']; ?> 
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr  class="td-penghasilan_ibu">
+                                        <th class="title"> Penghasilan Ibu: </th>
+                                        <td class="value">
+                                            <span <?php if($can_edit){ ?> data-source='<?php echo json_encode_quote(Menu :: $penghasilan_ay); ?>' 
+                                                data-value="<?php echo $data['penghasilan_ibu']; ?>" 
+                                                data-pk="<?php echo $data['id'] ?>" 
+                                                data-url="<?php print_link("data_siswa/editfield/" . urlencode($data['id'])); ?>" 
+                                                data-name="penghasilan_ibu" 
+                                                data-title="Select a value ..." 
+                                                data-placement="left" 
+                                                data-toggle="click" 
+                                                data-type="select" 
+                                                data-mode="popover" 
+                                                data-showbuttons="left" 
+                                                class="is-editable" <?php } ?>>
+                                                <?php echo $data['penghasilan_ibu']; ?> 
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr  class="td-pekerjaan_ibu">
+                                        <th class="title"> Pekerjaan Ibu: </th>
+                                        <td class="value">
+                                            <span <?php if($can_edit){ ?> data-source='<?php echo json_encode_quote(Menu :: $pekerjaan_ayah); ?>' 
+                                                data-value="<?php echo $data['pekerjaan_ibu']; ?>" 
+                                                data-pk="<?php echo $data['id'] ?>" 
+                                                data-url="<?php print_link("data_siswa/editfield/" . urlencode($data['id'])); ?>" 
+                                                data-name="pekerjaan_ibu" 
+                                                data-title="Select a value ..." 
+                                                data-placement="left" 
+                                                data-toggle="click" 
+                                                data-type="select" 
+                                                data-mode="popover" 
+                                                data-showbuttons="left" 
+                                                class="is-editable" <?php } ?>>
+                                                <?php echo $data['pekerjaan_ibu']; ?> 
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr  class="td-no_telp">
+                                        <th class="title"> No Telp: </th>
+                                        <td class="value">
+                                            <span <?php if($can_edit){ ?> data-value="<?php echo $data['no_telp']; ?>" 
+                                                data-pk="<?php echo $data['id'] ?>" 
+                                                data-url="<?php print_link("data_siswa/editfield/" . urlencode($data['id'])); ?>" 
+                                                data-name="no_telp" 
+                                                data-title="Enter Nomer Telphone" 
                                                 data-placement="left" 
                                                 data-toggle="click" 
                                                 data-type="text" 
                                                 data-mode="popover" 
                                                 data-showbuttons="left" 
                                                 class="is-editable" <?php } ?>>
-                                                <?php echo $data['username']; ?> 
+                                                <?php echo $data['no_telp']; ?> 
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr  class="td-no_hp">
+                                        <th class="title"> No Hp: </th>
+                                        <td class="value">
+                                            <span <?php if($can_edit){ ?> data-value="<?php echo $data['no_hp']; ?>" 
+                                                data-pk="<?php echo $data['id'] ?>" 
+                                                data-url="<?php print_link("data_siswa/editfield/" . urlencode($data['id'])); ?>" 
+                                                data-name="no_hp" 
+                                                data-title="Enter Nomer Hp" 
+                                                data-placement="left" 
+                                                data-toggle="click" 
+                                                data-type="text" 
+                                                data-mode="popover" 
+                                                data-showbuttons="left" 
+                                                class="is-editable" <?php } ?>>
+                                                <?php echo $data['no_hp']; ?> 
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr  class="td-tinggi_badan">
+                                        <th class="title"> Tinggi Badan: </th>
+                                        <td class="value">
+                                            <span <?php if($can_edit){ ?> data-value="<?php echo $data['tinggi_badan']; ?>" 
+                                                data-pk="<?php echo $data['id'] ?>" 
+                                                data-url="<?php print_link("data_siswa/editfield/" . urlencode($data['id'])); ?>" 
+                                                data-name="tinggi_badan" 
+                                                data-title="Tinggi Badan" 
+                                                data-placement="left" 
+                                                data-toggle="click" 
+                                                data-type="number" 
+                                                data-mode="popover" 
+                                                data-showbuttons="left" 
+                                                class="is-editable" <?php } ?>>
+                                                <?php echo $data['tinggi_badan']; ?> 
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr  class="td-berat_badan">
+                                        <th class="title"> Berat Badan: </th>
+                                        <td class="value">
+                                            <span <?php if($can_edit){ ?> data-value="<?php echo $data['berat_badan']; ?>" 
+                                                data-pk="<?php echo $data['id'] ?>" 
+                                                data-url="<?php print_link("data_siswa/editfield/" . urlencode($data['id'])); ?>" 
+                                                data-name="berat_badan" 
+                                                data-title="Berat Badan" 
+                                                data-placement="left" 
+                                                data-toggle="click" 
+                                                data-type="number" 
+                                                data-mode="popover" 
+                                                data-showbuttons="left" 
+                                                class="is-editable" <?php } ?>>
+                                                <?php echo $data['berat_badan']; ?> 
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr  class="td-jarak_rumah">
+                                        <th class="title"> Jarak Rumah: </th>
+                                        <td class="value">
+                                            <span <?php if($can_edit){ ?> data-value="<?php echo $data['jarak_rumah']; ?>" 
+                                                data-pk="<?php echo $data['id'] ?>" 
+                                                data-url="<?php print_link("data_siswa/editfield/" . urlencode($data['id'])); ?>" 
+                                                data-name="jarak_rumah" 
+                                                data-title="Jarak Rumah" 
+                                                data-placement="left" 
+                                                data-toggle="click" 
+                                                data-type="text" 
+                                                data-mode="popover" 
+                                                data-showbuttons="left" 
+                                                class="is-editable" <?php } ?>>
+                                                <?php echo $data['jarak_rumah']; ?> 
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr  class="td-waktu_tempuh">
+                                        <th class="title"> Waktu Tempuh: </th>
+                                        <td class="value">
+                                            <span <?php if($can_edit){ ?> data-value="<?php echo $data['waktu_tempuh']; ?>" 
+                                                data-pk="<?php echo $data['id'] ?>" 
+                                                data-url="<?php print_link("data_siswa/editfield/" . urlencode($data['id'])); ?>" 
+                                                data-name="waktu_tempuh" 
+                                                data-title="Waktu Tempuh" 
+                                                data-placement="left" 
+                                                data-toggle="click" 
+                                                data-type="text" 
+                                                data-mode="popover" 
+                                                data-showbuttons="left" 
+                                                class="is-editable" <?php } ?>>
+                                                <?php echo $data['waktu_tempuh']; ?> 
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr  class="td-asal_sekolah">
+                                        <th class="title"> Asal Sekolah: </th>
+                                        <td class="value">
+                                            <span <?php if($can_edit){ ?> data-value="<?php echo $data['asal_sekolah']; ?>" 
+                                                data-pk="<?php echo $data['id'] ?>" 
+                                                data-url="<?php print_link("data_siswa/editfield/" . urlencode($data['id'])); ?>" 
+                                                data-name="asal_sekolah" 
+                                                data-title="Asal Sekolah" 
+                                                data-placement="left" 
+                                                data-toggle="click" 
+                                                data-type="text" 
+                                                data-mode="popover" 
+                                                data-showbuttons="left" 
+                                                class="is-editable" <?php } ?>>
+                                                <?php echo $data['asal_sekolah']; ?> 
                                             </span>
                                         </td>
                                     </tr>
@@ -421,7 +828,7 @@ $show_export_btn = $this->show_export_btn;
                                                 </a>
                                                 <?php } ?>
                                                 <?php if($can_delete){ ?>
-                                                <a class="btn btn-sm btn-danger record-delete-btn mx-1"  href="<?php print_link("data_siswa/delete/$rec_id/?csrf_token=$csrf_token&redirect=$current_page"); ?>" data-prompt-msg="Yakin Menghapus ?? data tidak bisa di kembalikan" data-display-style="modal">
+                                                <a class="btn btn-sm btn-danger record-delete-btn mx-1"  href="<?php print_link("data_siswa/delete/$rec_id/?csrf_token=$csrf_token&redirect=$current_page"); ?>" data-prompt-msg="Are you sure you want to delete this record?" data-display-style="modal">
                                                     <i class="fa fa-times"></i> Delete
                                                 </a>
                                                 <?php } ?>

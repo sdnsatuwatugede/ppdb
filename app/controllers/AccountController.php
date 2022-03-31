@@ -18,7 +18,7 @@ class AccountController extends SecureController{
 		$db->where ("id_user", $rec_id);
 		$tablename = $this->tablename;
 		$fields = array("id_user", 
-			"nama", 
+			"nama_user", 
 			"email", 
 			"role");
 		$user = $db->getOne($tablename , $fields);
@@ -42,16 +42,25 @@ class AccountController extends SecureController{
 		$rec_id = $this->rec_id = USER_ID;
 		$tablename = $this->tablename;
 		 //editable fields
-		$fields = $this->fields = array("id_user","profil");
+		$fields = $this->fields = array("id_user","nama_user","profil");
 		if($formdata){
 			$postdata = $this->format_request_data($formdata);
 			$this->rules_array = array(
+				'nama_user' => 'required',
 				'profil' => 'required',
 			);
 			$this->sanitize_array = array(
+				'nama_user' => 'sanitize_string',
 				'profil' => 'sanitize_string',
 			);
 			$modeldata = $this->modeldata = $this->validate_form($postdata);
+			//Check if Duplicate Record Already Exit In The Database
+			if(isset($modeldata['nama_user'])){
+				$db->where("nama_user", $modeldata['nama_user'])->where("id_user", $rec_id, "!=");
+				if($db->has($tablename)){
+					$this->view->page_error[] = $modeldata['nama_user']." Already exist!";
+				}
+			} 
 			if($this->validated()){
 				$db->where("user.id_user", $rec_id);;
 				$bool = $db->update($tablename, $modeldata);

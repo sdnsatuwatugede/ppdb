@@ -1,60 +1,34 @@
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
-
-<style>
-.p{
-
-  font-family: 'Poppins', sans-serif;
-}
-
-h2{
-	font-family: 'Poppins', sans-serif;
-	font-weight: bold;
-}
-
-h3{
-	font-family: 'Poppins', sans-serif;
-	font-weight: bold;
-}
-h4{
-	font-family: 'Poppins', sans-serif;
-	color: blue;
-}
-</style>
 <div class="container">
-	<h4>Pusat Bantuan PPDB Tahun 2022</h4>
+	<h4 class="custom-help">Pusat Bantuan</h4>
 	<hr />
 	<div>
-		<h5>Tata Cara Pendaftaran PPDB Online SD NEGERI 1 WATUGEDE Tahun Pelajaran 2022 - 2023</h5>
-	</div>
-	<div class="p">
-		<p>Siapkan Dokumen Pendukung</p>
+		<h5 class="custom-help">Sebelum Melakukan pengisian formulir data siswa di wajibkan untuk register / daftar dulu
+		</h5>
+		<hr>
 		<ul>
-			<li>
-				Kartu Kelurga Terbaru
-			</li>
-			<li>
-				Akte Kelahiran
-			</li>
-			<li>
-				Atau Surat Kelahiran / Bidan / Desa
-			</li>
-			<li>
-			    Isi Formulir Pendaftaran sesuai kondisi saat ini
-			</li>
-			<li>
-			    Catat Nomer Pendaftaran yang terisi otomatis di formulir
-			</li>
-			<li>
-			    Link Formulir bisa diakses <a href="https://ppdb.sdn1watugede.web.id/data_siswa/add">Di sini</a>
-			</li>
-			<li>
-			    Kontak Panitia <a href="https://ppdb.sdn1watugede.web.id/info/contact">Di sini</a>
-			</li>
+			<li>Pertama daftar klick tombol warna hijau bertulisankan daftar</li>
+			<li>Setelah masuk halam pendaftaran username / pakai nama siswa bisa atau lainnya yang mudah di ingat dan
+				catat biar tidak lupa</li>
+			<li>Isi Password yang mudah di Ingat dan catat biar tidak lupa</li>
+			<li>Isi email aktif </li>
+			<li>Isi Pas photo siswa </li>
+			<li>Setelah itu klick tombol warna biru bertuliskan simpan </li>
+			<li>Otomatis akan terbuka halaman pertama siswa </li>
+			<li>Silakan baca petunjuk yang ada di situ untuk pengisian formulir data lengkap </li>
 		</ul>
-		<p>Terima Kasih</p>
-	
 	</div>
-	
+	<div>
+		<ul>
+			<li>Untuk edit data siswa silakan mengunakan username dan password pada waktu pendaftaran diatas</li>
+			<li>Kalau ada pertanyaan atau kurang jelas silakan bertanya di group atau <a
+					href="https://wa.me/6285259089099">DI SINI</a></li>
+
+			<li>Atau alternatif No ini <a href="https://wa.me/6281335809010"> DI SINI</a></li>
+			<li>Link Daftar <a href="<?php print_link("index/register") ?>" class="btn btn-outline-primary"> Daftar
+					Disini</a></li>
+
+		</ul>
+	</div>
+
+
 </div>

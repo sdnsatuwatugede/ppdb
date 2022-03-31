@@ -11,16 +11,16 @@ $redirect_to = $this->redirect_to;
     <?php
     if( $show_header == true ){
     ?>
-    <div  class="bg-light p-3 mb-3">
+    <div  class="p-3 mb-3">
         <div class="container">
             <div class="row ">
                 <div class="col ">
-                    <h4 class="record-title">User registration</h4>
+                    <h4 class="record-title"><div class="custom-1">Formulir Pendaftaran</div></h4>
                 </div>
                 <div class="col-sm-6 comp-grid">
                     <div class="">
                         <div class="text-center">
-                            Already have an account?  <a class="btn btn-primary" href="<?php print_link('') ?>"> Login</a>
+                            Sudah punya akun silakan <a class="btn btn-primary rounded" href="<?php print_link('') ?>"> Login</a>
                         </div>
                     </div>
                 </div>
@@ -31,35 +31,36 @@ $redirect_to = $this->redirect_to;
     }
     ?>
     <div  class="">
-        <div class="container">
-            <div class="row ">
+        <div class="container-fluid">
+            <div class="row justify-content-center">
                 <div class="col-md-7 comp-grid">
                     <?php $this :: display_page_errors(); ?>
-                    <div  class="bg-light p-3 animated fadeIn page-content">
+                    <div  class=" animated fadeIn page-content">
                         <form id="user-userregister-form" role="form" novalidate enctype="multipart/form-data" class="form page-form form-horizontal needs-validation" action="<?php print_link("index/register?csrf_token=$csrf_token") ?>" method="post">
                             <!--[main-form-start]-->
                             <div>
                                 <div class="form-group ">
                                     <div class="row">
                                         <div class="col-sm-4">
-                                            <label class="control-label" for="nama">Nama <span class="text-danger">*</span></label>
+                                            <label class="control-label" for="nama_user">Nama <span class="text-danger">*</span></label>
                                         </div>
                                         <div class="col-sm-8">
                                             <div class="">
-                                                <input id="ctrl-nama"  value="<?php  echo $this->set_field_value('nama',""); ?>" type="text" placeholder="Enter Nama"  required="" name="nama"  data-url="api/json/user_nama_value_exist/" data-loading-msg="Checking availability ..." data-available-msg="Available" data-unavailable-msg="Not available" class="form-control  ctrl-check-duplicate" />
+                                                <input id="ctrl-nama_user"  value="<?php  echo $this->set_field_value('nama_user',""); ?>" type="text" placeholder="Isi Nama User Login"  required="" name="nama_user"  data-url="api/json/user_nama_user_value_exist/" data-loading-msg="Checking availability ..." data-available-msg="Available" data-unavailable-msg="Not available" class="form-control  ctrl-check-duplicate" />
                                                     <div class="check-status"></div> 
                                                 </div>
+                                                <small class="form-text">Isi nama user untuk login </small>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group ">
                                         <div class="row">
                                             <div class="col-sm-4">
-                                                <label class="control-label" for="pass">Pass <span class="text-danger">*</span></label>
+                                                <label class="control-label" for="password">Password <span class="text-danger">*</span></label>
                                             </div>
                                             <div class="col-sm-8">
                                                 <div class="input-group">
-                                                    <input id="ctrl-pass"  value="<?php  echo $this->set_field_value('pass',""); ?>" type="password" placeholder="Enter Pass"  required="" name="pass"  class="form-control  password password-strength" />
+                                                    <input id="ctrl-password"  value="<?php  echo $this->set_field_value('password',""); ?>" type="password" placeholder="Enter Password"  required="" name="password"  class="form-control  password password-strength" />
                                                         <div class="input-group-append cursor-pointer btn-toggle-password">
                                                             <span class="input-group-text"><i class="fa fa-eye"></i></span>
                                                         </div>
@@ -71,24 +72,26 @@ $redirect_to = $this->redirect_to;
                                                         <small class="number chip">Number</small>
                                                         <small class="special chip">Symbol</small>
                                                     </div>
+                                                    <small class="form-text">Password jangan sampai lupa </small>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="form-group ">
                                             <div class="row">
                                                 <div class="col-sm-4">
-                                                    <label class="control-label" for="confirm_password">Confirm Password <span class="text-danger">*</span></label>
+                                                    <label class="control-label" for="confirm_password">Konfirmasi Password <span class="text-danger">*</span></label>
                                                 </div>
                                                 <div class="col-sm-8">
                                                     <div class="input-group">
-                                                        <input id="ctrl-pass-confirm" data-match="#ctrl-pass"  class="form-control password-confirm " type="password" name="confirm_password" required placeholder="Confirm Password" />
+                                                        <input id="ctrl-password-confirm" data-match="#ctrl-password"  class="form-control password-confirm " type="password" name="confirm_password" required placeholder="Confirm Password" />
                                                         <div class="input-group-append cursor-pointer btn-toggle-password">
                                                             <span class="input-group-text"><i class="fa fa-eye"></i></span>
                                                         </div>
                                                         <div class="invalid-feedback">
-                                                            Password does not match
+                                                            Password tidak sama
                                                         </div>
                                                     </div>
+                                                    <small class="form-text">Password jangan sampai lupa </small>
                                                 </div>
                                             </div>
                                         </div>
@@ -102,6 +105,7 @@ $redirect_to = $this->redirect_to;
                                                         <input id="ctrl-email"  value="<?php  echo $this->set_field_value('email',""); ?>" type="email" placeholder="Enter Email"  required="" name="email"  data-url="api/json/user_email_value_exist/" data-loading-msg="Checking availability ..." data-available-msg="Available" data-unavailable-msg="Not available" class="form-control  ctrl-check-duplicate" />
                                                             <div class="check-status"></div> 
                                                         </div>
+                                                        <small class="form-text">Isi dengan email Aktif</small>
                                                     </div>
                                                 </div>
                                             </div>
@@ -118,10 +122,11 @@ $redirect_to = $this->redirect_to;
                                                                     <div class="dz-file-limit animated bounceIn text-center text-danger"></div>
                                                                 </div>
                                                             </div>
+                                                            <small class="form-text">pergunakan foto siswa</small>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <input id="ctrl-role"  value="<?php  echo $this->set_field_value('role',"siswa"); ?>" type="hidden" placeholder="Enter Role" list="role_list"  readonly required="" name="role"  class="form-control " />
+                                                <input id="ctrl-role"  value="<?php  echo $this->set_field_value('role',"Siswa"); ?>" type="hidden" placeholder="Enter Role" list="role_list"  readonly required="" name="role"  class="form-control " />
                                                     <datalist id="role_list">
                                                         <?php
                                                         $role_options = Menu :: $role;
@@ -129,32 +134,20 @@ $redirect_to = $this->redirect_to;
                                                         foreach($role_options as $option){
                                                         $value = $option['value'];
                                                         $label = $option['label'];
-                                                        $selected = $this->set_field_selected('role', $value, "siswa");
+                                                        $selected = $this->set_field_selected('role', $value, "Siswa");
                                                         ?>
-                                                        <option><?php  echo $this->set_field_value('role',"siswa"); ?></option>
+                                                        <option><?php  echo $this->set_field_value('role',"Siswa"); ?></option>
                                                         <?php
                                                         }
                                                         }
                                                         ?>
                                                     </datalist>
-                                                    <div class="form-group">
-                                                        <div class="row">
-                                                            <div class="col-sm-4">
-                                                                <label class="control-label" for="user_role_id">Enter the code <span class="text-danger">*</span></label>
-                                                            </div>
-                                                            <div class="col-sm-8">
-                                                                <div class="">
-                                                                    <?php Html::captcha_field(); ?>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
                                                 </div>
                                                 <!--[main-form-end]-->
                                                 <div class="form-group form-submit-btn-holder text-center mt-3">
-                                                    <button class="btn btn-primary" type="submit">
-                                                        Submit
-                                                        <i class="fa fa-send"></i>
+                                                    <button class="btn btn-primary rounded" type="submit">
+                                                        Simpan
+                                                        </i>
                                                     </button>
                                                 </div>
                                             </form>

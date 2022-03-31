@@ -15,7 +15,7 @@ $redirect_to = $this->redirect_to;
         <div class="container">
             <div class="row ">
                 <div class="col ">
-                    <h4 class="record-title">Add New User</h4>
+                    <h4 class="record-title"><div class="custom-1">Tambah Data user</div></h4>
                 </div>
             </div>
         </div>
@@ -34,12 +34,15 @@ $redirect_to = $this->redirect_to;
                                 <div class="form-group ">
                                     <div class="row">
                                         <div class="col-sm-4">
-                                            <label class="control-label" for="nama">Nama <span class="text-danger">*</span></label>
+                                            <label class="control-label" for="nama_user">Nama User <span class="text-danger">*</span></label>
                                         </div>
                                         <div class="col-sm-8">
-                                            <div class="">
-                                                <input id="ctrl-nama"  value="<?php  echo $this->set_field_value('nama',""); ?>" type="text" placeholder="Enter Nama"  required="" name="nama"  data-url="api/json/user_nama_value_exist/" data-loading-msg="Checking availability ..." data-available-msg="Available" data-unavailable-msg="Not available" class="form-control  ctrl-check-duplicate" />
+                                            <div class="input-group">
+                                                <input id="ctrl-nama_user"  value="<?php  echo $this->set_field_value('nama_user',""); ?>" type="text" placeholder="Nama User"  required="" name="nama_user"  data-url="api/json/user_nama_user_value_exist/" data-loading-msg="Checking availability ..." data-available-msg="Available" data-unavailable-msg="Not available" class="form-control  ctrl-check-duplicate" />
                                                     <div class="check-status"></div> 
+                                                    <div class="input-group-append">
+                                                        <span class="input-group-text"><i class="fa fa-user "></i></span>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -47,13 +50,16 @@ $redirect_to = $this->redirect_to;
                                     <div class="form-group ">
                                         <div class="row">
                                             <div class="col-sm-4">
-                                                <label class="control-label" for="pass">Pass <span class="text-danger">*</span></label>
+                                                <label class="control-label" for="password">Password <span class="text-danger">*</span></label>
                                             </div>
                                             <div class="col-sm-8">
                                                 <div class="input-group">
-                                                    <input id="ctrl-pass"  value="<?php  echo $this->set_field_value('pass',""); ?>" type="password" placeholder="Enter Pass" maxlength="255"  required="" name="pass"  class="form-control  password password-strength" />
+                                                    <input id="ctrl-password"  value="<?php  echo $this->set_field_value('password',""); ?>" type="password" placeholder="Password" maxlength="255"  required="" name="password"  class="form-control  password password-strength" />
                                                         <div class="input-group-append cursor-pointer btn-toggle-password">
                                                             <span class="input-group-text"><i class="fa fa-eye"></i></span>
+                                                        </div>
+                                                        <div class="input-group-append">
+                                                            <span class="input-group-text"><i class="fa fa-lock "></i></span>
                                                         </div>
                                                     </div>
                                                     <div class="password-strength-msg">
@@ -73,12 +79,15 @@ $redirect_to = $this->redirect_to;
                                                 </div>
                                                 <div class="col-sm-8">
                                                     <div class="input-group">
-                                                        <input id="ctrl-pass-confirm" data-match="#ctrl-pass"  class="form-control password-confirm " type="password" name="confirm_password" required placeholder="Confirm Password" />
+                                                        <input id="ctrl-password-confirm" data-match="#ctrl-password"  class="form-control password-confirm " type="password" name="confirm_password" required placeholder="Confirm Password" />
                                                         <div class="input-group-append cursor-pointer btn-toggle-password">
                                                             <span class="input-group-text"><i class="fa fa-eye"></i></span>
                                                         </div>
                                                         <div class="invalid-feedback">
                                                             Password does not match
+                                                        </div>
+                                                        <div class="input-group-append">
+                                                            <span class="input-group-text"><i class="fa fa-lock "></i></span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -90,9 +99,12 @@ $redirect_to = $this->redirect_to;
                                                     <label class="control-label" for="email">Email <span class="text-danger">*</span></label>
                                                 </div>
                                                 <div class="col-sm-8">
-                                                    <div class="">
-                                                        <input id="ctrl-email"  value="<?php  echo $this->set_field_value('email',""); ?>" type="email" placeholder="Enter Email"  required="" name="email"  data-url="api/json/user_email_value_exist/" data-loading-msg="Checking availability ..." data-available-msg="Available" data-unavailable-msg="Not available" class="form-control  ctrl-check-duplicate" />
+                                                    <div class="input-group">
+                                                        <input id="ctrl-email"  value="<?php  echo $this->set_field_value('email',""); ?>" type="email" placeholder="Email"  required="" name="email"  data-url="api/json/user_email_value_exist/" data-loading-msg="Checking availability ..." data-available-msg="Available" data-unavailable-msg="Not available" class="form-control  ctrl-check-duplicate" />
                                                             <div class="check-status"></div> 
+                                                            <div class="input-group-append">
+                                                                <span class="input-group-text"><i class="fa fa-envelope-o "></i></span>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -142,23 +154,11 @@ $redirect_to = $this->redirect_to;
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="form-group">
-                                                    <div class="row">
-                                                        <div class="col-sm-4">
-                                                            <label class="control-label" for="user_role_id">Enter the code <span class="text-danger">*</span></label>
-                                                        </div>
-                                                        <div class="col-sm-8">
-                                                            <div class="">
-                                                                <?php Html::captcha_field(); ?>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
                                             </div>
                                             <div class="form-group form-submit-btn-holder text-center mt-3">
                                                 <div class="form-ajax-status"></div>
                                                 <button class="btn btn-primary" type="submit">
-                                                    Simpan
+                                                    Submit
                                                     <i class="fa fa-send"></i>
                                                 </button>
                                             </div>

@@ -252,17 +252,17 @@
 <body>
 	<div id="report-header">
 		<table class="table table-sm">
-		<tr>
-			<th align="left" valign="middle" width="60">
-					<img width="50" height="50" src="<?php print_link("assets/images/logo_Kab_Mlg.png") ?>" />
+			<tr>
+				<th align="left" valign="middle" width="60">
+					<img width="50" height="50" src="<?php print_link("assets/images/logo.png") ?>" />
 				</th>
 				<th align="left" valign="middle">
 					<h3 class="company-name"><?php echo SITE_NAME; ?></h3>
-					<small class="sub-title">Tahun Pelajaran 2022 - 2023</small>
+					<small class="sub-title">The Amazing and Awesome</small>
 				</th>
 				<th align="right" valign="middle">
 					<div class="company-info">
-						<div>Phone: <span class="sub-title">0341441951</span></div>
+						<div>Phone: <span class="sub-title">+2335400000000</span></div>
 						<div>Email: <span class="sub-title">info@<?php echo SITE_NAME ?></span></div>
 						<div>Web: <span class="sub-title"><?php echo SITE_ADDR ?></span></div>
 					</div>
@@ -281,11 +281,11 @@
 	<div id="report-footer">
 		<table class="table table-sm">
 			<tr>
-				<td align="left" valign="middle" width="20">
+				<td align="left" valign="middle" width="30">
 					<img width="30" height="30" src="<?php print_link("assets/images/logo.png") ?>" />
 				</td>
 				<td align="left" valign="middle">
-					SD NEGERI 1 WATUGEDE | ops@sdn1watugede
+					Footer content goes here.
 				</td>
 				<td align="right" valign="middle">
 					<?php echo  human_datetime(time()); ?>

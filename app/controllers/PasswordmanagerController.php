@@ -13,7 +13,7 @@ class PasswordmanagerController extends BaseController{
 			$tablename = $this->tablename;
 			$db = $this->GetModel();
 			$db->where ("email", $email); //get user by email
-			$user = $db->getOne($tablename, array('id_user', 'nama'));
+			$user = $db->getOne($tablename, array('id_user', 'nama_user'));
 			if(!empty($user)){
 				//Generate new password reset
 				$password_reset_key = password_hash(random_str(), PASSWORD_DEFAULT);
@@ -27,7 +27,7 @@ class PasswordmanagerController extends BaseController{
 				$db->update($tablename, $modeldata);
 				$reset_link = SITE_ADDR."Passwordmanager/updatepassword?key=$password_reset_key";
 				$sitename = SITE_NAME;
-				$user_name = $user['nama'];
+				$user_name = $user['nama_user'];
 				$mailtitle = "$sitename password reset";
 				//Password reset html template
 				$mailbody = file_get_contents(PAGES_DIR . "passwordmanager/password_reset_email_template.html");
@@ -70,7 +70,7 @@ class PasswordmanagerController extends BaseController{
 							$new_password_hash = password_hash($password , PASSWORD_DEFAULT);
 							$new_date_to_expire = format_date("3 months");
 							$new_password_data = array(
-								"pass" => $new_password_hash,
+								"password" => $new_password_hash,
 								"password_reset_key" => null,
 								"password_expire_date" => $new_date_to_expire
 							);

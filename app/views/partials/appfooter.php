@@ -1,20 +1,11 @@
-</style>
-<footer class="footer border-top">
-	<div class="container-fluid">
-		<div class="row">
-			<div class="col-sm-4">
-				<div class="copyright">ops | sdn1watugede | &copy; <?php echo SITE_NAME ?> - <?php echo date('Y') ?></div>
-			</div>
-			<div class="col-sm-8">
-				<div class="footer-links text-right">
-					<a href="<?php print_link('info/about'); ?>">Tentang Aplikasi</a> | 
-					<a href="<?php print_link('info/help'); ?>">Bantuan</a> |
-					<a href="<?php print_link('info/contact'); ?>">Kontak</a>  |
-					<a href="<?php print_link('info/privacy_policy'); ?>">Privacy Policy</a> |
-					<a href="<?php print_link('info/terms_and_conditions'); ?>">Terms and Conditions</a>
-				</div>
-			</div>
-			
-		</div>
-	</div>
-</footer>
+<div class="frontend myfooter bg-ligt mb-0">
+    <div class="col-12 p-3">
+        <div class="row">
+            <div class="col bold"><h6 class="bold text-white"><?php echo SITE_NAME ;?></h6></div>
+            <div class="col social text-center">
+				
+            </div>
+            <div class="col rights text-right"><?php echo SITE_NAME ;?> <?php echo date('Y') ;?> | All Rights Reserved</div>
+        </div>
+    </div>
+</div>

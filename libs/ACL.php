@@ -16,36 +16,18 @@ class ACL
 	public static $role_pages = array(
 			'admin' =>
 						array(
-							'data_agama' => array('list','view','add','edit', 'editfield','delete','import_data'),
-							'data_kebutuhan_khs' => array('list','view','add','edit', 'editfield','delete','import_data'),
 							'data_siswa' => array('list','view','add','edit', 'editfield','delete','import_data'),
-							'data_tempat' => array('list','view','add','edit', 'editfield','delete','import_data'),
-							'data_tranportasi' => array('list','view','add','edit', 'editfield','delete','import_data'),
-							'db_pekerjaan' => array('list','view','add','edit', 'editfield','delete','import_data'),
-							'db_penghasilan' => array('list','view','add','edit', 'editfield','delete','import_data'),
-							'pendidikan' => array('list','view','add','edit', 'editfield','delete','import_data'),
-							'user' => array('list','view','accountedit','accountview','add','edit', 'editfield','delete','import_data','userregister'),
-							'db_rincian' => array('list','view','add','edit', 'editfield','delete','import_data')
+							'user' => array('list','view','userregister','accountedit','accountview','add','edit', 'editfield','delete','import_data')
 						),
 		
 			'guru' =>
 						array(
-							'data_siswa' => array('list','view','add','edit', 'editfield'),
-							'user' => array('userregister'),
-							'db_rincian' => array('add')
-						),
-		
-			'user' =>
-						array(
-							'data_siswa' => array('list','view','add'),
-							'user' => array('userregister'),
-							'db_rincian' => array('list','view','add','edit', 'editfield')
+							'data_siswa' => array('list','view','add','edit', 'editfield')
 						),
 		
 			'siswa' =>
 						array(
-							'data_siswa' => array('list','view','add','edit', 'editfield'),
-							'db_rincian' => array('list','view','add','edit', 'editfield')
+							'data_siswa' => array('list','view','add','edit', 'editfield')
 						)
 		);
 

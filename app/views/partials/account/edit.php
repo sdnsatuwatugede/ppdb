@@ -18,7 +18,7 @@ $redirect_to = $this->redirect_to;
         <div class="container">
             <div class="row ">
                 <div class="col ">
-                    <h4 class="record-title">My Account</h4>
+                    <h4 class="record-title"><div class="custom-1">Akun Edit</div></h4>
                 </div>
             </div>
         </div>
@@ -37,33 +37,49 @@ $redirect_to = $this->redirect_to;
                                 <div class="form-group ">
                                     <div class="row">
                                         <div class="col-sm-4">
-                                            <label class="control-label" for="profil">Profil <span class="text-danger">*</span></label>
+                                            <label class="control-label" for="nama_user">Nama User <span class="text-danger">*</span></label>
                                         </div>
                                         <div class="col-sm-8">
-                                            <div class="">
-                                                <div class="dropzone required" input="#ctrl-profil" fieldname="profil"    data-multiple="false" dropmsg="Choose files or drag and drop files to upload"    btntext="Browse" extensions=".jpg,.png,.gif,.jpeg" filesize="3" maximum="1">
-                                                    <input name="profil" id="ctrl-profil" required="" class="dropzone-input form-control" value="<?php  echo $data['profil']; ?>" type="text"  />
-                                                        <!--<div class="invalid-feedback animated bounceIn text-center">Please a choose file</div>-->
-                                                        <div class="dz-file-limit animated bounceIn text-center text-danger"></div>
+                                            <div class="input-group">
+                                                <input id="ctrl-nama_user"  value="<?php  echo $data['nama_user']; ?>" type="text" placeholder="Nama User"  required="" name="nama_user"  data-url="api/json/account_nama_user_value_exist/" data-loading-msg="Checking availability ..." data-available-msg="Available" data-unavailable-msg="Not available" class="form-control  ctrl-check-duplicate" />
+                                                    <div class="check-status"></div> 
+                                                    <div class="input-group-append">
+                                                        <span class="input-group-text"><i class="fa fa-user "></i></span>
                                                     </div>
                                                 </div>
-                                                <?php Html :: uploaded_files_list($data['profil'], '#ctrl-profil'); ?>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="form-ajax-status"></div>
-                                <div class="form-group text-center">
-                                    <button class="btn btn-primary" type="submit">
-                                        Update
-                                        <i class="fa fa-send"></i>
-                                    </button>
-                                </div>
-                            </form>
+                                    <div class="form-group ">
+                                        <div class="row">
+                                            <div class="col-sm-4">
+                                                <label class="control-label" for="profil">Profil <span class="text-danger">*</span></label>
+                                            </div>
+                                            <div class="col-sm-8">
+                                                <div class="">
+                                                    <div class="dropzone required" input="#ctrl-profil" fieldname="profil"    data-multiple="false" dropmsg="Choose files or drag and drop files to upload"    btntext="Browse" extensions=".jpg,.png,.gif,.jpeg" filesize="3" maximum="1">
+                                                        <input name="profil" id="ctrl-profil" required="" class="dropzone-input form-control" value="<?php  echo $data['profil']; ?>" type="text"  />
+                                                            <!--<div class="invalid-feedback animated bounceIn text-center">Please a choose file</div>-->
+                                                            <div class="dz-file-limit animated bounceIn text-center text-danger"></div>
+                                                        </div>
+                                                    </div>
+                                                    <?php Html :: uploaded_files_list($data['profil'], '#ctrl-profil'); ?>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-ajax-status"></div>
+                                    <div class="form-group text-center">
+                                        <button class="btn btn-primary" type="submit">
+                                            Update
+                                            <i class="fa fa-send"></i>
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    
+        </section>
+        
